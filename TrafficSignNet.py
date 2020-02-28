@@ -19,6 +19,22 @@ class TrafficSignNet:
         model.add(BatchNormalization(axis=chanDim))
         model.add(MaxPooling2D(pool_size=(2,2)))
 
+        model.add(Conv2D(16, (3, 3), padding="same"))
+        model.add(Activation("relu"))
+        model.add(BatchNormalization(axis=chanDim))
+        model.add(Conv2D(16, (3, 3), padding="same"))
+        model.add(Activation("relu"))
+        model.add(BatchNormalization(axis=chanDim))
+        model.add(MaxPooling2D(pool_size=(2, 2)))
+
+        model.add(Conv2D(32, (3, 3), padding="same"))
+        model.add(Activation("relu"))
+        model.add(BatchNormalization(axis=chanDim))
+        model.add(Conv2D(32, (3, 3), padding="same"))
+        model.add(Activation("relu"))
+        model.add(BatchNormalization(axis=chanDim))
+        model.add(MaxPooling2D(pool_size=(2, 2)))
+
         model.add(Flatten())
         model.add(Dense(128))
         model.add(Activation("relu"))

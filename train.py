@@ -1,6 +1,4 @@
 import matplotlib
-matplotlib.use("Agg")
-
 from TrafficSignNet import TrafficSignNet
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.optimizers import Adam
@@ -14,6 +12,9 @@ import numpy as np
 import argparse
 import random
 import os
+from keras.utils.vis_utils import plot_model
+
+matplotlib.use("Agg")
 
 def load_split(basePath, csvPath):
     data=[]
