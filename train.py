@@ -12,7 +12,6 @@ import numpy as np
 import argparse
 import random
 import os
-from keras.utils.vis_utils import plot_model
 
 matplotlib.use("Agg")
 

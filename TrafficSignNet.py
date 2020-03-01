@@ -14,6 +14,7 @@ class TrafficSignNet:
         model = Sequential()
         inputShape = (height, width, depth)
         chanDim = -1
+        
         model.add(Conv2D(8, (5,5), padding="same", input_shape=inputShape))
         model.add(Activation("relu"))
         model.add(BatchNormalization(axis=chanDim))
