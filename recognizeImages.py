@@ -37,7 +37,7 @@ for (i, imagePath) in enumerate(imagePaths):
 
     preds = model.predict(image)
     print(preds.max(axis=1), preds.argmax(axis=1))
-    cv2.waitKey()
+    #cv2.waitKey()
     j = preds.argmax(axis=1)[0]
     label = labelNames[j]
 

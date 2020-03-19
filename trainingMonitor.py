@@ -5,6 +5,8 @@ import matplotlib.pyplot as plot
 import numpy as np
 import json
 import os
+import cv2
+import glob
 
 
 @singledispatch
@@ -65,3 +67,10 @@ class TrainingMonitor(BaseLogger):
 
             plot.savefig(self.figPath)
             plot.close()
+
+            data_path = os.path.join(self.figPath)
+            files = glob.glob(data_path)
+            for f in files:
+                image = cv2.imread(f, cv2.IMREAD_UNCHANGED)
+                cv2.imshow("plot", image)
+                cv2.waitKey(1)

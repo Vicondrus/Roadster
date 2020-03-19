@@ -2,14 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9cde44e4-cd23-4f31-9ef1-d32027d02f60" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/shapeDetection.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trafficSignCnn_v2.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/examples/0.png" beforeDir="false" afterPath="$PROJECT_DIR$/examples/0.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/1.png" beforeDir="false" afterPath="$PROJECT_DIR$/examples/1.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/examples/2.png" beforeDir="false" afterPath="$PROJECT_DIR$/examples/2.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/examples/3.png" beforeDir="false" afterPath="$PROJECT_DIR$/examples/3.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/examples/4.png" beforeDir="false" afterPath="$PROJECT_DIR$/examples/4.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/examples/5.png" beforeDir="false" afterPath="$PROJECT_DIR$/examples/5.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/examples/6.png" beforeDir="false" afterPath="$PROJECT_DIR$/examples/6.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/recognizeImages.py" beforeDir="false" afterPath="$PROJECT_DIR$/recognizeImages.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trafficSignCnn.py" beforeDir="false" afterPath="$PROJECT_DIR$/trafficSignCnn_v1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainingMonitor.py" beforeDir="false" afterPath="$PROJECT_DIR$/trainingMonitor.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/violaJonesDetection.py" beforeDir="false" afterPath="$PROJECT_DIR$/violaJonesDetection.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -47,14 +53,15 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Users\Victor\Documents\GitHub\Roadster\video" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Users\Vicon\PycharmProjects\RoadSigns" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Users\Victor\Documents\GitHub\Roadster" />
+      <recent name="D:\Users\Victor\Documents\GitHub\Roadster\video" />
+    </key>
   </component>
-  <component name="RunManager" selected="Python.recognizeImages">
+  <component name="RunManager" selected="Python.shapeDetection">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="RoadSigns" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -89,7 +96,49 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/recognizeImages.py" />
-      <option name="PARAMETERS" value="--model .\\output\\germansignsnet --images .\\self --examples .\\examples" />
+      <option name="PARAMETERS" value="--model .\\output\\germansignsnet3 --images .\\self --examples .\\examples" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="shapeDetection" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="RoadSigns" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="D:\Users\Vicon\RoadSigns\Scripts\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/shapeDetection.py" />
+      <option name="PARAMETERS" value="--model .\\output\\germansignsnet --images .\\GermanSigns\\Test --examples .\\examples" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="testing" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="RoadSigns" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="D:\Users\Vicon\RoadSigns\Scripts\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/testing.py" />
+      <option name="PARAMETERS" value="--model .\\output\\germansignsnet --images .\\GermanSigns\\Test --examples .\\examples" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -110,7 +159,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/train.py" />
-      <option name="PARAMETERS" value="--dataset .\\data\\germanRoadsigns --model .\\output\\germansigns2 --plot output\\plot.png -o .\\dict" />
+      <option name="PARAMETERS" value="--dataset .\\data\\germanRoadsigns --model .\\output\\germansignsnet3 --plot output\\plot.png -o .\\dict3" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -143,12 +192,16 @@
       <item itemvalue="Python.recognizeImages" />
       <item itemvalue="Python.train" />
       <item itemvalue="Python.violaJonesDetection" />
+      <item itemvalue="Python.shapeDetection" />
+      <item itemvalue="Python.testing" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.recognizeImages" />
+        <item itemvalue="Python.shapeDetection" />
         <item itemvalue="Python.violaJonesDetection" />
+        <item itemvalue="Python.recognizeImages" />
         <item itemvalue="Python.train" />
+        <item itemvalue="Python.testing" />
       </list>
     </recent_temporary>
   </component>
@@ -199,11 +252,11 @@
     <option name="LAST_COMMIT_MESSAGE" value="model created&#10;-may need a graph" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="305" y="103" width="1092" height="706" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583076006086">
+    <state x="305" y="103" width="1092" height="706" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584643422984">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="254" y="85" width="1092" height="706" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1600.860@0.0.1600.860" timestamp="1583060566016" />
-    <state x="305" y="103" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583076006086" />
+    <state x="305" y="103" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1584643422984" />
     <state x="693" y="323" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1584041198923">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -225,55 +278,80 @@
     </state>
     <state x="580" y="193" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1582986495251" />
     <state x="696" y="233" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1583074400485" />
-    <state width="1899" height="282" key="GridCell.Tab.0.bottom" timestamp="1584135698264">
+    <state width="936" height="279" key="GridCell.Tab.0.bottom" timestamp="1584648127253">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="760" height="222" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1583065043808" />
-    <state width="1899" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1584135698264" />
-    <state width="1899" height="282" key="GridCell.Tab.0.center" timestamp="1584135698264">
+    <state width="936" height="279" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1584648127253" />
+    <state width="936" height="279" key="GridCell.Tab.0.center" timestamp="1584648127253">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="760" height="222" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1583065043808" />
-    <state width="1899" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1584135698264" />
-    <state width="1899" height="282" key="GridCell.Tab.0.left" timestamp="1584135698264">
+    <state width="936" height="279" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1584648127253" />
+    <state width="936" height="279" key="GridCell.Tab.0.left" timestamp="1584648127253">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="760" height="222" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1583065043808" />
-    <state width="1899" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1584135698264" />
-    <state width="1899" height="282" key="GridCell.Tab.0.right" timestamp="1584135698264">
+    <state width="936" height="279" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1584648127253" />
+    <state width="936" height="279" key="GridCell.Tab.0.right" timestamp="1584648127253">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="760" height="222" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1583065043808" />
-    <state width="1899" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1584135698264" />
-    <state width="1579" height="276" key="GridCell.Tab.1.bottom" timestamp="1582987859065">
-      <screen x="0" y="0" width="1600" height="860" />
+    <state width="936" height="279" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1584648127253" />
+    <state width="1899" height="348" key="GridCell.Tab.1.bottom" timestamp="1584636367042">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1579" height="276" key="GridCell.Tab.1.bottom/0.0.1600.860@0.0.1600.860" timestamp="1582987859065" />
-    <state width="1579" height="276" key="GridCell.Tab.1.center" timestamp="1582987859064">
-      <screen x="0" y="0" width="1600" height="860" />
+    <state width="1899" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1584636367042" />
+    <state width="1899" height="348" key="GridCell.Tab.1.center" timestamp="1584636367042">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1579" height="276" key="GridCell.Tab.1.center/0.0.1600.860@0.0.1600.860" timestamp="1582987859064" />
-    <state width="1579" height="276" key="GridCell.Tab.1.left" timestamp="1582987859064">
-      <screen x="0" y="0" width="1600" height="860" />
+    <state width="1899" height="348" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1584636367042" />
+    <state width="1899" height="348" key="GridCell.Tab.1.left" timestamp="1584636367042">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1579" height="276" key="GridCell.Tab.1.left/0.0.1600.860@0.0.1600.860" timestamp="1582987859064" />
-    <state width="1579" height="276" key="GridCell.Tab.1.right" timestamp="1582987859064">
-      <screen x="0" y="0" width="1600" height="860" />
+    <state width="1899" height="348" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1584636367042" />
+    <state width="1899" height="348" key="GridCell.Tab.1.right" timestamp="1584636367042">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1579" height="276" key="GridCell.Tab.1.right/0.0.1600.860@0.0.1600.860" timestamp="1582987859064" />
-    <state x="407" y="108" key="SettingsEditor" timestamp="1583676026586">
+    <state width="1899" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1584636367042" />
+    <state x="407" y="108" key="SettingsEditor" timestamp="1584466745260">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="339" y="89" key="SettingsEditor/0.0.1600.860@0.0.1600.860" timestamp="1582922735429" />
-    <state x="407" y="108" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1583676026586" />
-    <state x="641" y="328" key="com.intellij.ide.util.TipDialog" timestamp="1584130938299">
+    <state x="407" y="108" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1584466745260" />
+    <state x="641" y="328" key="com.intellij.ide.util.TipDialog" timestamp="1584643401420">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="534" y="271" key="com.intellij.ide.util.TipDialog/0.0.1600.860@0.0.1600.860" timestamp="1583060375775" />
-    <state x="641" y="328" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1584130938299" />
+    <state x="641" y="328" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1584643401420" />
     <state x="770" y="254" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1582922470330">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="770" y="254" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582922470330" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/shapeDetection.py</url>
+          <line>68</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/shapeDetection.py</url>
+          <line>75</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/trainingMonitor.py</url>
+          <line>70</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

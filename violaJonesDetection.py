@@ -6,7 +6,7 @@ import glob
 from skimage import transform
 
 list_xml_files = glob.glob('haarstages/*.xml')
-video_capture = cv.VideoCapture('video/videoplayback.mp4')
+video_capture = cv.VideoCapture('video/video3.mp4')
 
 model = load_model(".\\output\\germansignsnet")
 labelNames = open("signnames.csv").read().strip().split("\n")[1:]
