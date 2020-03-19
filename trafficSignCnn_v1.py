@@ -7,7 +7,7 @@ from tensorflow.keras.layers import Flatten
 from tensorflow.keras.layers import Dropout
 from tensorflow.keras.layers import Dense
 
-
+# original architecture, from pyimagesearch
 class TrafficSignNet_v1:
     @staticmethod
     def build(width, height, depth, classes):

@@ -7,6 +7,8 @@ from tensorflow.keras.layers import Flatten
 from tensorflow.keras.layers import Dropout
 from tensorflow.keras.layers import Dense
 
+
+# learning transfer from MobileNetV2
 class TrafficSignNet_v2:
     @staticmethod
     def build(width, height, depth, classes):
