@@ -19,7 +19,7 @@ class TrafficSignNet_v2:
                                                        weights='imagenet')
 
         base_model.trainable = True
-
+        
         fine_tune_at = 100
 
         for layer in base_model.layers[:fine_tune_at]:

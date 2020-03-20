@@ -6,9 +6,12 @@ from tensorflow.keras.models import load_model
 from skimage import exposure
 from skimage import transform
 
-model = load_model(".\\output\\germansignsnet")
+model = load_model(".\\output\\germansignsnet3")
 labelNames = open("signnames.csv").read().strip().split("\n")[1:]
 labelNames = [l.split(",")[1] for l in labelNames]
+
+label = None
+prevAcc = None
 
 
 def constrastLimit(image):
@@ -17,9 +20,41 @@ def constrastLimit(image):
     channels[0] = cv2.equalizeHist(channels[0])
     img_hist_equalized = cv2.merge(channels)
     img_hist_equalized = cv2.cvtColor(img_hist_equalized, cv2.COLOR_YCrCb2BGR)
+
     cv2.imshow("Contrast", img_hist_equalized)
-    #cv2.waitKey()
+    # cv2.waitKey()
     return img_hist_equalized
+
+
+def filterColors(image):
+    img_filtered = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
+
+    lower_red = np.array([0, 120, 70])
+    upper_red = np.array([10, 255, 255])
+
+    mask1 = cv2.inRange(img_filtered, lower_red, upper_red)
+
+    lower_red = np.array([170, 120, 70])
+    upper_red = np.array([180, 255, 255])
+
+    mask2 = cv2.inRange(img_filtered, lower_red, upper_red)
+
+    sens = 16
+    lower_white = np.array([0, 0, 255 - sens])
+    upper_white = np.array([255, sens, 255])
+
+    mask3 = cv2.inRange(img_filtered, lower_white, upper_white)
+
+    low_blue = np.array([94, 80, 2])
+    high_blue = np.array([126, 255, 255])
+
+    mask4 = cv2.inRange(img_filtered, low_blue, high_blue)
+
+    img_filtered = mask1 + mask2 + mask3 + mask4
+    output_img = image.copy()
+    output_img[np.where(img_filtered == 0)] = 0
+
+    return  output_img
 
 
 def laplacianOfGaussian(image):
@@ -28,20 +63,21 @@ def laplacianOfGaussian(image):
     LoG = cv2.Laplacian(gray, cv2.CV_8U, 3, 3, 2)  # parameter
     LoG = cv2.convertScaleAbs(LoG)
     cv2.imshow("Laplacian of Gaussian", LoG)
-    #cv2.waitKey()
+    # cv2.waitKey()
     return LoG
 
 
 def binarization(image):
     thresh = cv2.threshold(image, 32, 255, cv2.THRESH_BINARY)[1]
     cv2.imshow("Binarized", image)
-    #cv2.waitKey()
-    # thresh = cv2.adaptiveThreshold(image,255,cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY,11,2)
+    # cv2.waitKey()
+    #thresh = cv2.adaptiveThreshold(image,255,cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY,11,2)
     return thresh
 
 
 def preprocess_image(image):
     image = constrastLimit(image)
+    image = filterColors(image)
     image = laplacianOfGaussian(image)
     image = binarization(image)
     return image
@@ -84,10 +120,10 @@ def contourIsSign(perimeter, centroid, threshold):
     temp = sum((1 - s) for s in signature)
     temp = temp / len(signature)
 
-    #peri = cv2.arcLength(perimeter, True)
-    #approx = cv2.approxPolyDP(perimeter, 0.04 * peri, True)
+    # peri = cv2.arcLength(perimeter, True)
+    # approx = cv2.approxPolyDP(perimeter, 0.04 * peri, True)
 
-    #if len(approx) == 3:
+    # if len(approx) == 3:
     #    return True, 50
 
     if temp < threshold:  # is  the sign
@@ -111,6 +147,10 @@ def cropContour(image, center, max_distance):
 def cropSign(image, coordinate):
     width = image.shape[1]
     height = image.shape[0]
+    if height > width:
+        width = height
+    else:
+        height = width
     top = max([int(coordinate[0][1]), 0])
     bottom = min([int(coordinate[1][1]), height - 1])
     left = max([int(coordinate[0][0]), 0])
@@ -120,10 +160,10 @@ def cropSign(image, coordinate):
 
 
 def findLargestSign(image, contours, threshold, distance_theshold):
+    global prevAcc, label
     max_distance = 0
     coordinate = None
     sign = None
-    label = None
     for c in contours:
 
         M = cv2.moments(c)
@@ -153,7 +193,9 @@ def findLargestSign(image, contours, threshold, distance_theshold):
             print(preds.max(axis=1), preds.argmax(axis=1))
             j = preds.argmax(axis=1)[0]
             if preds.max(axis=1)[0] > 0.9:
-                label = labelNames[j]
+                if prevAcc is None or preds.max(axis=1)[0] > 0.999:
+                    prevAcc = preds.max(axis=1)[0]
+                    label = labelNames[j]
     return sign, coordinate, label
 
 
@@ -176,10 +218,12 @@ def localization(image, min_size_components, similitary_contour_with_circle):
     return coordinate, original_image, label
 
 
-vidcap = cv2.VideoCapture('video/video3.mp4')
+vidcap = cv2.VideoCapture('video/video4.mp4')
 
 while True:
     success, frame = vidcap.read()
+    if success is False:
+        break
     coordinate, image, label = localization(frame, 300, 0.65)
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break

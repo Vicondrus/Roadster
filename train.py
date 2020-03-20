@@ -2,6 +2,7 @@ import matplotlib
 
 from trafficSignCnn_v1 import TrafficSignNet_v1
 from trafficSignCnn_v2 import TrafficSignNet_v2
+from trafficSignCnn_v3 import TrafficSignNet_v3
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.utils import to_categorical
@@ -117,10 +118,10 @@ print("[INFO] compiling model...")
 base_learning_rate = 0.0001
 
 opt = Adam(lr=INIT_LR, decay=INIT_LR / (NUM_EPOCHS * 0.5))
-model = TrafficSignNet_v2.build(width=32, height=32, depth=3, classes=numLabels)
-model.compile(loss=tf.keras.losses.BinaryCrossentropy(from_logits=True),
-              optimizer=tf.keras.optimizers.RMSprop(lr=base_learning_rate / 10),
-              metrics=['accuracy'])
+model = TrafficSignNet_v3.build(width=32, height=32, depth=3, classes=numLabels)
+
+base_learning_rate = 0.0001
+model.compile(loss='categorical_crossentropy', optimizer=Adam(lr=1e-4), metrics=['accuracy'])
 
 # training monitor
 figPath = os.path.sep.join([args["output"], "{}.png".format(os.getpid())])
