@@ -9,6 +9,7 @@ from tensorflow.keras.layers import Dense
 
 
 # learning transfer from MobileNetV2
+#   learning transfer using different base network
 class TrafficSignNet_v2:
     @staticmethod
     def build(width, height, depth, classes):

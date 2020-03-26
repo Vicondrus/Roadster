@@ -6,7 +6,7 @@ import glob
 from skimage import transform
 
 list_xml_files = glob.glob('haarstages/*.xml')
-video_capture = cv.VideoCapture('video/video3.mp4')
+video_capture = cv.VideoCapture('video/video5.mp4')
 
 model = load_model(".\\output\\germansignsnet")
 labelNames = open("signnames.csv").read().strip().split("\n")[1:]
@@ -16,7 +16,7 @@ while True:
     success, image = video_capture.read()
 
     if not success:
-        break;
+        break
 
     gray = cv.cvtColor(image, cv.COLOR_BGR2GRAY)
 
@@ -41,7 +41,7 @@ while True:
                 print(preds.max(axis=1), preds.argmax(axis=1))
                 if preds.max(axis=1)[0] < 0.9:
                     continue
-                cv.waitKey()
+                cv.waitKey(1)
                 j = preds.argmax(axis=1)[0]
                 label = labelNames[j]
 

@@ -120,15 +120,10 @@ def contourIsSign(perimeter, centroid, threshold):
     temp = sum((1 - s) for s in signature)
     temp = temp / len(signature)
 
-    # peri = cv2.arcLength(perimeter, True)
-    # approx = cv2.approxPolyDP(perimeter, 0.04 * peri, True)
-
-    # if len(approx) == 3:
-    #    return True, 50
-
     if temp < threshold:  # is  the sign
         return True, max_value + 2
     else:  # is not the sign
+
         return False, max_value + 2
 
 
@@ -173,7 +168,9 @@ def findLargestSign(image, contours, threshold, distance_theshold):
         cY = int(M["m01"] / M["m00"])
         is_sign, distance = contourIsSign(c, [cX, cY], 1 - threshold)
         if is_sign and distance > max_distance and distance > distance_theshold:
-            cv2.drawContours(image, c, -1, (0, 255, 0), 2)
+            contour = image.copy()
+            cv2.drawContours(contour, c, -1, (0, 255, 0), 2)
+            cv2.circle(contour, (cX, cY), 5, (255, 0, 0), 2)
             max_distance = distance
             coordinate = np.reshape(c, [-1, 2])
             left, top = np.amin(coordinate, axis=0)
@@ -181,7 +178,9 @@ def findLargestSign(image, contours, threshold, distance_theshold):
             coordinate = [(left - 2, top - 2), (right + 3, bottom + 1)]
             sign = cropSign(image, coordinate)
             cv2.imshow("sign", sign)
-            cv2.imshow("contour", image)
+
+            cv2.imshow("contour", contour)
+            cv2.waitKey()
 
             obj = transform.resize(sign, (32, 32))
             obj = exposure.equalize_adapthist(obj, clip_limit=0.1)
@@ -218,7 +217,7 @@ def localization(image, min_size_components, similitary_contour_with_circle):
     return coordinate, original_image, label
 
 
-vidcap = cv2.VideoCapture('video/video4.mp4')
+vidcap = cv2.VideoCapture('video/video3.mp4')
 
 while True:
     success, frame = vidcap.read()

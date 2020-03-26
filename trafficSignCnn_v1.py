@@ -7,6 +7,7 @@ from tensorflow.keras.layers import Flatten
 from tensorflow.keras.layers import Dropout
 from tensorflow.keras.layers import Dense
 
+
 # original architecture, from pyimagesearch
 class TrafficSignNet_v1:
     @staticmethod
@@ -14,11 +15,11 @@ class TrafficSignNet_v1:
         model = Sequential()
         inputShape = (height, width, depth)
         chanDim = -1
-        
-        model.add(Conv2D(8, (5,5), padding="same", input_shape=inputShape))
+
+        model.add(Conv2D(8, (5, 5), padding="same", input_shape=inputShape))
         model.add(Activation("relu"))
         model.add(BatchNormalization(axis=chanDim))
-        model.add(MaxPooling2D(pool_size=(2,2)))
+        model.add(MaxPooling2D(pool_size=(2, 2)))
 
         model.add(Conv2D(16, (3, 3), padding="same"))
         model.add(Activation("relu"))
