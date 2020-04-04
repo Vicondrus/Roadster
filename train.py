@@ -30,7 +30,7 @@ EVALSIZE = 20
 
 def writeTopToCSV(name, list):
     with open(name, mode='w') as top_file:
-        top_writer = csv.writer(top_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_NONNUMERIC)
+        top_writer = csv.writer(top_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_NONNUMERIC, lineterminator="\n")
 
         for top in list:
             top_writer.writerow(top)
@@ -57,7 +57,7 @@ def evaluate(model, evalX, evalY):
 
 
 # split training data again into TRAINING and FINAL EVALUATION/TESTING - DISJOINT
-def load_data_and_labels(basePath, csvPath, evalutation_split=False):
+def load_data_and_labels(basePath, csvPath, evaluation_split=False):
     data = []
     labels = []
 
@@ -65,7 +65,7 @@ def load_data_and_labels(basePath, csvPath, evalutation_split=False):
     rows = open(csvPath).read().strip().split("\n")[1:]
     random.shuffle(rows)
 
-    if evalutation_split:
+    if evaluation_split:
         eval_dict = {}
 
         # for each image
@@ -86,7 +86,7 @@ def load_data_and_labels(basePath, csvPath, evalutation_split=False):
 
         intaux = int(label)
 
-        if evalutation_split:
+        if evaluation_split:
             if intaux not in eval_dict:
                 eval_dict[intaux] = [image]
             elif len(eval_dict[intaux]) < EVALSIZE - 1:
@@ -98,7 +98,7 @@ def load_data_and_labels(basePath, csvPath, evalutation_split=False):
             data.append(image)
             labels.append(intaux)
 
-    if evalutation_split:
+    if evaluation_split:
         eval_data = []
         eval_labels = []
         for key in eval_dict:
@@ -109,7 +109,7 @@ def load_data_and_labels(basePath, csvPath, evalutation_split=False):
     data = np.array(data)
     labels = np.array(labels)
 
-    if evalutation_split:
+    if evaluation_split:
         return ((eval_data, eval_labels), (data, labels))
 
     return data, labels
@@ -136,7 +136,7 @@ testPath = os.path.sep.join([args["dataset"], "Test.csv"])
 # load data to a tuple with the previous function
 print("[INFO] loading training, validation and evaluation data...")
 # train data
-((evalX, evalY), (trainX, trainY)) = load_data_and_labels(args["dataset"], trainPath, evalutation_split=True)
+((evalX, evalY), (trainX, trainY)) = load_data_and_labels(args["dataset"], trainPath, evaluation_split=True)
 # test data
 (testX, testY) = load_data_and_labels(args["dataset"], testPath)
 
@@ -167,14 +167,15 @@ print("[INFO] compiling model...")
 base_learning_rate = 0.0001
 
 opt = Adam(lr=INIT_LR, decay=INIT_LR / (NUM_EPOCHS * 0.5))
-model = TrafficSignNet_v3.build(width=32, height=32, depth=3, classes=numLabels)
+model = TrafficSignNet_v2.build(width=32, height=32, depth=3, classes=numLabels)
 
 model.compile(loss='categorical_crossentropy', optimizer=opt, metrics=['accuracy'])
 
 # training monitor
 figPath = os.path.sep.join([args["output"], "{}.png".format(os.getpid())])
 jsonPath = os.path.sep.join([args["output"], "{}.json".format(os.getpid())])
-callbacks = [TrainingMonitor(figPath, jsonPath=jsonPath), EarlyStopping(monitor='val_loss', mode='min', verbose=1, patience=5)]
+callbacks = [TrainingMonitor(figPath, jsonPath=jsonPath),
+             EarlyStopping(monitor='val_loss', mode='min', verbose=1, patience=5)]
 
 print("[INFO] training network...")
 H = model.fit_generator(
@@ -195,11 +196,11 @@ evalYDum = list(evalY)
 
 stats, top5 = evaluate(model, evalXDum, evalYDum)
 
-writeTopToCSV(args["model"]+'\\top5.csv', top5)
+writeTopToCSV(args["model"] + '\\top5.csv', top5)
 
 plot.bar(range(len(stats)), list(stats.values()), align='center')
 plot.xticks(range(len(stats)), list(stats.keys()))
-plot.savefig(args["model"]+"\\stats.jpg")
+plot.savefig(args["model"] + "\\stats.jpg")
 
 evalX = np.array(evalX, dtype=np.float32) / 255.0
 evalY = to_categorical(evalY, numLabels)
@@ -215,13 +216,13 @@ print(classification_report(evalY.argmax(axis=1), predictions.argmax(axis=1), ta
 
 # for each prediction print top 5 and what it should have been
 
-N = np.arange(0, NUM_EPOCHS)
+N = np.arange(0, len(H.history["loss"]))
 plot.style.use("ggplot")
 plot.figure()
-plot.plot(N, H.history["loss"], label="train_loss")
-plot.plot(N, H.history["val_loss"], label="val_loss")
-plot.plot(N, H.history["accuracy"], label="train_acc")
-plot.plot(N, H.history["val_accuracy"], label="val_acc")
+plot.plot(len(H.history["loss"]), H.history["loss"], label="train_loss")
+plot.plot(len(H.history["val_loss"]), H.history["val_loss"], label="val_loss")
+plot.plot(len(H.history["accuracy"]), H.history["accuracy"], label="train_acc")
+plot.plot(len(H.history["val_accuracy"]), H.history["val_accuracy"], label="val_acc")
 plot.title("Training Loss and Accuracy on Dataset")
 plot.xlabel("Epoch #")
 plot.ylabel("Loss/Accuracy")

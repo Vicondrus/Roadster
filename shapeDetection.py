@@ -3,16 +3,30 @@ import imutils
 import numpy as np
 from math import sqrt
 from tensorflow.keras.models import load_model
-from skimage import exposure
+from skimage import exposure, io
 from skimage import transform
 
-model = load_model(".\\output\\germansignsnet3")
+model = load_model(".\\output\\germansignsnet3.5")
 labelNames = open("signnames.csv").read().strip().split("\n")[1:]
 labelNames = [l.split(",")[1] for l in labelNames]
 
 label = None
 prevAcc = None
 
+i = 0
+
+
+# save images extracted from video
+# label them
+# evaluate classifier
+
+# implement testing
+
+# make evaluation after loading model - method DONE
+
+# separate BY PYTHON SCRIPT the evaluation from training DONE
+
+# make statistics on top5 evaluation - check how many were classified correctly on top3 DONE
 
 def constrastLimit(image):
     img_hist_equalized = cv2.cvtColor(image, cv2.COLOR_BGR2YCrCb)
@@ -29,32 +43,52 @@ def constrastLimit(image):
 def filterColors(image):
     img_filtered = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
 
-    lower_red = np.array([0, 120, 70])
+    lower_red = np.array([0, 100, 70])
     upper_red = np.array([10, 255, 255])
 
     mask1 = cv2.inRange(img_filtered, lower_red, upper_red)
 
-    lower_red = np.array([170, 120, 70])
+    lower_red = np.array([170, 100, 70])
     upper_red = np.array([180, 255, 255])
 
     mask2 = cv2.inRange(img_filtered, lower_red, upper_red)
 
-    sens = 16
+    sens = 3
     lower_white = np.array([0, 0, 255 - sens])
     upper_white = np.array([255, sens, 255])
 
     mask3 = cv2.inRange(img_filtered, lower_white, upper_white)
 
-    low_blue = np.array([94, 80, 2])
-    high_blue = np.array([126, 255, 255])
+    low_blue = np.array([100, 150, 0])
+    high_blue = np.array([140, 255, 255])
 
     mask4 = cv2.inRange(img_filtered, low_blue, high_blue)
 
-    img_filtered = mask1 + mask2 + mask3 + mask4
+    low_yellow = np.array([10, 100, 70])
+    high_yellow = np.array([30, 255, 255])
+
+    mask5 = cv2.inRange(img_filtered, low_yellow, high_yellow)
+
+    img_filtered = mask1 + mask2 + mask3 + mask4 + mask5
     output_img = image.copy()
     output_img[np.where(img_filtered == 0)] = 0
 
-    return  output_img
+    cv2.imshow("masked", output_img)
+
+    return output_img
+
+
+def auto_canny(image, sigma=0.33):
+    v = np.median(image)
+
+    image = cv2.GaussianBlur(image, (3, 3), 0)
+
+    lower = int(max(0, (1.0 - sigma) * v))
+    upper = int(min(255, (1.0 + sigma) * v))
+    edged = cv2.Canny(image, lower, upper)
+    cv2.imshow("Canny edge", edged)
+
+    return edged
 
 
 def laplacianOfGaussian(image):
@@ -71,14 +105,14 @@ def binarization(image):
     thresh = cv2.threshold(image, 32, 255, cv2.THRESH_BINARY)[1]
     cv2.imshow("Binarized", image)
     # cv2.waitKey()
-    #thresh = cv2.adaptiveThreshold(image,255,cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY,11,2)
+    # thresh = cv2.adaptiveThreshold(image,255,cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY,11,2)
     return thresh
 
 
 def preprocess_image(image):
     image = constrastLimit(image)
     image = filterColors(image)
-    image = laplacianOfGaussian(image)
+    image = auto_canny(image)
     image = binarization(image)
     return image
 
@@ -139,23 +173,24 @@ def cropContour(image, center, max_distance):
     return image[left:right, top:bottom]
 
 
-def cropSign(image, coordinate):
+def cropSign(image, coordinate, diff=10):
     width = image.shape[1]
     height = image.shape[0]
     if height > width:
         width = height
     else:
         height = width
-    top = max([int(coordinate[0][1]), 0])
-    bottom = min([int(coordinate[1][1]), height - 1])
-    left = max([int(coordinate[0][0]), 0])
-    right = min([int(coordinate[1][0]), width - 1])
+    top = max([int(coordinate[0][1]) - diff, 0])
+    bottom = min([int(coordinate[1][1]) + diff, height - 1])
+    left = max([int(coordinate[0][0]) - diff, 0])
+    right = min([int(coordinate[1][0]) + diff, width - 1])
     # print(top,left,bottom,right)
     return image[top:bottom, left:right]
 
 
 def findLargestSign(image, contours, threshold, distance_theshold):
     global prevAcc, label
+    global i
     max_distance = 0
     coordinate = None
     sign = None
@@ -177,22 +212,32 @@ def findLargestSign(image, contours, threshold, distance_theshold):
             right, bottom = np.amax(coordinate, axis=0)
             coordinate = [(left - 2, top - 2), (right + 3, bottom + 1)]
             sign = cropSign(image, coordinate)
+            # sign = constrastLimit(sign)
             cv2.imshow("sign", sign)
 
-            cv2.imshow("contour", contour)
-            cv2.waitKey()
+            cv2.imwrite(".\\data\\videoImages\\x.jpg", sign)
+            i += 1
 
-            obj = transform.resize(sign, (32, 32))
+            cv2.imshow("contour", contour)
+            cv2.waitKey(1)
+            obj = io.imread(".\\data\\videoImages\\x.jpg")
+            obj = transform.resize(obj, (32, 32))
             obj = exposure.equalize_adapthist(obj, clip_limit=0.1)
+
+            cv2.imshow("again", obj)
 
             obj = obj.astype("float32") / 255.0
             obj = np.expand_dims(obj, axis=0)
 
+            # print(preds.max(axis=1)[0], labelNames[preds.argmax(axis=1)[0]])
             preds = model.predict(obj)
-            print(preds.max(axis=1), preds.argmax(axis=1))
-            j = preds.argmax(axis=1)[0]
+            top = np.argsort(-preds, axis=1)
+            print(preds[0][top[0][0]], labelNames[top[0][0]])
+            print(preds[0][top[0][1]], labelNames[top[0][1]])
+            print(preds[0][top[0][2]], labelNames[top[0][2]])
+            j = top[0][0]
             if preds.max(axis=1)[0] > 0.9:
-                if prevAcc is None or preds.max(axis=1)[0] > 0.999:
+                 if prevAcc is None or preds.max(axis=1)[0] > 0.999:
                     prevAcc = preds.max(axis=1)[0]
                     label = labelNames[j]
     return sign, coordinate, label
@@ -217,7 +262,7 @@ def localization(image, min_size_components, similitary_contour_with_circle):
     return coordinate, original_image, label
 
 
-vidcap = cv2.VideoCapture('video/video3.mp4')
+vidcap = cv2.VideoCapture('video/video2.avi')
 
 while True:
     success, frame = vidcap.read()
