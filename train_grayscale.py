@@ -1,8 +1,5 @@
 import matplotlib
 
-from trafficSignCnn_v1 import TrafficSignNet_v1
-from trafficSignCnn_v2 import TrafficSignNet_v2
-from trafficSignCnn_v3 import TrafficSignNet_v3
 from trafficSignCnn_v4 import TrafficSignNet_v4
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.optimizers import Adam
@@ -21,6 +18,8 @@ import random
 import os
 import csv
 
+import cv2
+
 from keras.callbacks import ModelCheckpoint, EarlyStopping
 from trainingMonitor import TrainingMonitor
 
@@ -31,7 +30,8 @@ EVALSIZE = 20
 
 def writeTopToCSV(name, list):
     with open(name, mode='w') as top_file:
-        top_writer = csv.writer(top_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_NONNUMERIC, lineterminator="\n")
+        top_writer = csv.writer(top_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_NONNUMERIC,
+                                lineterminator="\n")
 
         for top in list:
             top_writer.writerow(top)
@@ -72,6 +72,9 @@ def load_data_and_labels(basePath, csvPath, evaluation_split=False):
         # for each image
     for (i, row) in enumerate(rows):
 
+        if i > 5000:
+            break
+
         if i > 0 and i % 1000 == 0:
             print("[INFO] processed {} total images".format(i))
 
@@ -83,7 +86,7 @@ def load_data_and_labels(basePath, csvPath, evaluation_split=False):
 
         image = transform.resize(image, (32, 32))
 
-        image = exposure.equalize_adapthist(image, clip_limit=0.1)
+        # image = exposure.equalize_adapthist(image, clip_limit=0.1)
 
         intaux = int(label)
 
@@ -124,7 +127,7 @@ ap.add_argument("-p", "--plot", type=str, default="plot.png", help="path to trai
 args = vars(ap.parse_args())
 
 # default parameters, might need adjustment
-NUM_EPOCHS = 100
+NUM_EPOCHS = 30
 INIT_LR = 1e-3
 BS = 64
 
@@ -141,14 +144,52 @@ print("[INFO] loading training, validation and evaluation data...")
 # test data
 (testX, testY) = load_data_and_labels(args["dataset"], testPath)
 
+evalXDum = list(evalX)
+evalYDum = list(evalY)
+
+# evalX = np.array(evalX, dtype=np.float32) / 255.0
+
 # scale to [0, 1]
-trainX = trainX.astype("float32") / 255.0
-testX = testX.astype("float32") / 255.0
+# trainX = trainX.astype("float32") / 255.0
+# testX = testX.astype("float32") / 255.0
+
+
+def preprocess(data):
+    """Convert to grayscale, histogram equalize, and expand dims"""
+    imgs = np.ndarray((data.shape[0], 32, 32, 1), dtype=np.uint8)
+    for i, img in enumerate(data):
+        img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+        img = cv2.equalizeHist(img)
+        img = np.expand_dims(img, axis=2)
+        imgs[i] = img
+    return imgs
+
+
+trainX = preprocess(trainX)
+testX = preprocess(testX)
+evalX = preprocess(evalX)
+
+
+def center_normaize(data, mean, std):
+    """Center normalize images"""
+    data = data.astype('float32')
+    data -= mean
+    data /= std
+    return data
+
+
+mean = np.mean(trainX)
+std = np.std(trainX)
+
+trainX = center_normaize(trainX, mean, std)
+testX = center_normaize(testX, mean, std)
+evalX = center_normaize(evalX, mean, std)
 
 # convert to one-hot encoding (boolean values from which only one is true at a time)
 numLabels = len(np.unique(trainY))
 trainY = to_categorical(trainY, numLabels)
 testY = to_categorical(testY, numLabels)
+evalY = to_categorical(evalY, numLabels)
 
 classTotals = trainY.sum(axis=0)
 classWeight = classTotals.max() / classTotals
@@ -168,7 +209,7 @@ print("[INFO] compiling model...")
 base_learning_rate = 0.0001
 
 opt = Adam(lr=INIT_LR, decay=INIT_LR / (NUM_EPOCHS * 0.5))
-model = TrafficSignNet_v4.build(width=32, height=32, depth=3, classes=numLabels)
+model = TrafficSignNet_v4.build(width=32, height=32, depth=1, classes=numLabels)
 
 model.compile(loss='categorical_crossentropy', optimizer=opt, metrics=['accuracy'])
 
@@ -192,8 +233,6 @@ H = model.fit_generator(
 print("[INFO] serializing network to '{}'...".format(args["model"]))
 model.save(args["model"])
 
-evalXDum = list(evalX)
-evalYDum = list(evalY)
 
 stats, top5 = evaluate(model, evalXDum, evalYDum)
 
@@ -203,7 +242,6 @@ plot.bar(range(len(stats)), list(stats.values()), align='center')
 plot.xticks(range(len(stats)), list(stats.keys()))
 plot.savefig(args["model"] + "\\stats.jpg")
 
-evalX = np.array(evalX, dtype=np.float32) / 255.0
 evalY = to_categorical(evalY, numLabels)
 
 print("[INFO] evaluating network...")
@@ -217,15 +255,14 @@ print(classification_report(evalY.argmax(axis=1), predictions.argmax(axis=1), ta
 
 # for each prediction print top 5 and what it should have been
 
-N = np.arange(0, len(H["loss"]))
+N = np.arange(0, len(H.history["loss"]))
 plot.style.use("ggplot")
 plot.figure()
-plot.plot(N, H["loss"], label="train_loss")
-plot.plot(N, H["val_loss"], label="val_loss")
-plot.plot(N, H["accuracy"], label="train_acc")
-plot.plot(N, H["val_accuracy"], label="val_acc")
-plot.title("Training Loss and Accuracy [Epoch {}]".format(
-    len(H["loss"])))
+plot.plot(len(H.history["loss"]), H.history["loss"], label="train_loss")
+plot.plot(len(H.history["val_loss"]), H.history["val_loss"], label="val_loss")
+plot.plot(len(H.history["accuracy"]), H.history["accuracy"], label="train_acc")
+plot.plot(len(H.history["val_accuracy"]), H.history["val_accuracy"], label="val_acc")
+plot.title("Training Loss and Accuracy on Dataset")
 plot.xlabel("Epoch #")
 plot.ylabel("Loss/Accuracy")
 plot.legend(loc="lower left")

@@ -5,8 +5,15 @@ from math import sqrt
 from tensorflow.keras.models import load_model
 from skimage import exposure, io
 from skimage import transform
+import voting
 
+models = []
 model = load_model(".\\output\\germansignsnet3.5")
+models.append(model)
+model = load_model(".\\output\\germansignsnet1.5")
+models.append(model)
+model = load_model(".\\output\\germansignsnet4.1")
+models.append(model)
 labelNames = open("signnames.csv").read().strip().split("\n")[1:]
 labelNames = [l.split(",")[1] for l in labelNames]
 
@@ -215,13 +222,12 @@ def findLargestSign(image, contours, threshold, distance_theshold):
             # sign = constrastLimit(sign)
             cv2.imshow("sign", sign)
 
-            cv2.imwrite(".\\data\\videoImages\\x.jpg", sign)
             i += 1
 
             cv2.imshow("contour", contour)
-            cv2.waitKey(1)
-            obj = io.imread(".\\data\\videoImages\\x.jpg")
-            obj = transform.resize(obj, (32, 32))
+            cv2.waitKey(0)
+            sign = cv2.cvtColor(sign, cv2.COLOR_BGR2RGB)
+            obj = transform.resize(sign, (32, 32))
             obj = exposure.equalize_adapthist(obj, clip_limit=0.1)
 
             cv2.imshow("again", obj)
@@ -230,16 +236,9 @@ def findLargestSign(image, contours, threshold, distance_theshold):
             obj = np.expand_dims(obj, axis=0)
 
             # print(preds.max(axis=1)[0], labelNames[preds.argmax(axis=1)[0]])
-            preds = model.predict(obj)
-            top = np.argsort(-preds, axis=1)
-            print(preds[0][top[0][0]], labelNames[top[0][0]])
-            print(preds[0][top[0][1]], labelNames[top[0][1]])
-            print(preds[0][top[0][2]], labelNames[top[0][2]])
-            j = top[0][0]
-            if preds.max(axis=1)[0] > 0.9:
-                 if prevAcc is None or preds.max(axis=1)[0] > 0.999:
-                    prevAcc = preds.max(axis=1)[0]
-                    label = labelNames[j]
+            j = voting.vote_on_image(models, sign)
+            if j is not None:
+                label = labelNames[j]
     return sign, coordinate, label
 
 
@@ -258,17 +257,18 @@ def localization(image, min_size_components, similitary_contour_with_circle):
         sign, coordinate, label = findLargestSign(original_image, contours, similitary_contour_with_circle, 15)
     else:
         coordinate = [(0, 0), (0, 0)]
+        sign = None
 
-    return coordinate, original_image, label
+    return coordinate, original_image, label, sign
 
 
-vidcap = cv2.VideoCapture('video/video2.avi')
+vidcap = cv2.VideoCapture('video/video6.mp4')
 
 while True:
     success, frame = vidcap.read()
     if success is False:
         break
-    coordinate, image, label = localization(frame, 300, 0.65)
+    coordinate, image, label, sign = localization(frame, 300, 0.65)
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
     cv2.putText(frame, label, (5, 15), cv2.FONT_HERSHEY_SIMPLEX,
