@@ -35,6 +35,9 @@ i = 0
 
 # make statistics on top5 evaluation - check how many were classified correctly on top3 DONE
 
+
+# detection algorithm inspired by https://github.com/ghostbbbmt/Traffic-Sign-Detection with few modifications
+# (canny edge instead of laplacian, color masks)
 def constrastLimit(image):
     img_hist_equalized = cv2.cvtColor(image, cv2.COLOR_BGR2YCrCb)
     channels = cv2.split(img_hist_equalized)
@@ -225,7 +228,7 @@ def findLargestSign(image, contours, threshold, distance_theshold):
             i += 1
 
             cv2.imshow("contour", contour)
-            cv2.waitKey(0)
+            cv2.waitKey(1)
             sign = cv2.cvtColor(sign, cv2.COLOR_BGR2RGB)
             obj = transform.resize(sign, (32, 32))
             obj = exposure.equalize_adapthist(obj, clip_limit=0.1)
@@ -262,7 +265,7 @@ def localization(image, min_size_components, similitary_contour_with_circle):
     return coordinate, original_image, label, sign
 
 
-vidcap = cv2.VideoCapture('video/video6.mp4')
+vidcap = cv2.VideoCapture('video/video9.mp4')
 
 while True:
     success, frame = vidcap.read()

@@ -10,6 +10,8 @@ hidden_num_units2 = 128
 pool_size = (2, 2)
 
 
+# architecture by Sanket Doshi
+# can be found at https://towardsdatascience.com/traffic-sign-detection-using-convolutional-neural-network-660fb32fe90e
 class TrafficSignNet_v3:
     @staticmethod
     def build(width, height, depth, classes):

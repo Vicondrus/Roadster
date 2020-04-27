@@ -8,7 +8,8 @@ from tensorflow.keras.layers import Dropout
 from tensorflow.keras.layers import Dense
 
 
-# original architecture, from pyimagesearch
+# architecture by Adrian Rosebrok
+# found at https://www.pyimagesearch.com/2019/11/04/traffic-sign-classification-with-keras-and-deep-learning/
 class TrafficSignNet_v1:
     @staticmethod
     def build(width, height, depth, classes):
