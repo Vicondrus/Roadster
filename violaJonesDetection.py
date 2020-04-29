@@ -1,9 +1,10 @@
+import glob
+
+import cv2 as cv
 import numpy as np
 from skimage import exposure
-from tensorflow.keras.models import load_model
-import cv2 as cv
-import glob
 from skimage import transform
+from tensorflow.keras.models import load_model
 
 list_xml_files = glob.glob('haarstages/*.xml')
 video_capture = cv.VideoCapture('video/video5.mp4')
@@ -30,7 +31,7 @@ while True:
         )
         if len(signs) != 0:
             for (x, y, w, h) in signs:
-                org = image[max(0, y - int(11*h/10)):y + int(11*h/10), x:x + w]
+                org = image[max(0, y - int(11 * h / 10)):y + int(11 * h / 10), x:x + w]
                 obj = transform.resize(org, (32, 32))
                 obj = exposure.equalize_adapthist(obj, clip_limit=0.1)
 

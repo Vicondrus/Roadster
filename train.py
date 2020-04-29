@@ -1,27 +1,22 @@
-import matplotlib
+import argparse
+import csv
+import os
+import random
 
-from trafficSignCnn_v1 import TrafficSignNet_v1
-from trafficSignCnn_v2 import TrafficSignNet_v2
-from trafficSignCnn_v3 import TrafficSignNet_v3
-from trafficSignCnn_v4 import TrafficSignNet_v4
-from tensorflow.keras.preprocessing.image import ImageDataGenerator
-from tensorflow.keras.optimizers import Adam
-from tensorflow.keras.utils import to_categorical
-from sklearn.metrics import classification_report
-from skimage import transform
+import matplotlib
+import matplotlib.pyplot as plot
+import numpy as np
+from keras.callbacks import EarlyStopping
 from skimage import exposure
 from skimage import io
+from skimage import transform
+from sklearn.metrics import classification_report
+from tensorflow.keras.optimizers import Adam
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
+from tensorflow.keras.utils import to_categorical
+from keras.callbacks import TensorBoard
 
-import matplotlib.pyplot as plot
-
-import tensorflow as tf
-import numpy as np
-import argparse
-import random
-import os
-import csv
-
-from keras.callbacks import ModelCheckpoint, EarlyStopping
+from trafficSignCnn_v4 import TrafficSignNet_v4
 from trainingMonitor import TrainingMonitor
 
 matplotlib.use("Agg")
@@ -31,7 +26,8 @@ EVALSIZE = 20
 
 def writeTopToCSV(name, list):
     with open(name, mode='w') as top_file:
-        top_writer = csv.writer(top_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_NONNUMERIC, lineterminator="\n")
+        top_writer = csv.writer(top_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_NONNUMERIC,
+                                lineterminator="\n")
 
         for top in list:
             top_writer.writerow(top)
@@ -172,11 +168,17 @@ model = TrafficSignNet_v4.build(width=32, height=32, depth=3, classes=numLabels)
 
 model.compile(loss='categorical_crossentropy', optimizer=opt, metrics=['accuracy'])
 
+
+log_dir = "logs\\fit\\" + args["output"]
+tensorboard_callback = TensorBoard(log_dir=log_dir, histogram_freq=1)
+
+
 # training monitor
 figPath = os.path.sep.join([args["output"], "{}.png".format(os.getpid())])
 jsonPath = os.path.sep.join([args["output"], "{}.json".format(os.getpid())])
+
 callbacks = [TrainingMonitor(figPath, jsonPath=jsonPath),
-             EarlyStopping(monitor='val_loss', mode='min', verbose=1, patience=5)]
+             EarlyStopping(monitor='val_loss', mode='min', verbose=1, patience=5), tensorboard_callback]
 
 print("[INFO] training network...")
 H = model.fit_generator(
@@ -208,7 +210,10 @@ evalY = to_categorical(evalY, numLabels)
 
 print("[INFO] evaluating network...")
 predictions = model.predict(evalX, batch_size=BS)
-print(classification_report(evalY.argmax(axis=1), predictions.argmax(axis=1), target_names=labelNames))
+f = open(args["model"] + "/classification_report.txt", "w+")
+f.write(classification_report(evalY.argmax(axis=1), predictions.argmax(axis=1), target_names=labelNames))
+f.close()
+
 
 # add evaluation part
 # for each model find how many were predicted right first try

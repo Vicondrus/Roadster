@@ -1,16 +1,21 @@
-from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Activation
 from tensorflow.keras.layers import BatchNormalization
 from tensorflow.keras.layers import Conv2D
-from tensorflow.keras.layers import MaxPooling2D
-from tensorflow.keras.layers import Activation
-from tensorflow.keras.layers import Flatten
-from tensorflow.keras.layers import Dropout
 from tensorflow.keras.layers import Dense
+from tensorflow.keras.layers import Dropout
+from tensorflow.keras.layers import Flatten
 from tensorflow.keras.layers import Input
+from tensorflow.keras.layers import MaxPooling2D
+from tensorflow.keras.models import Sequential
 
 
 # architecture inspired by https://github.com/hparik11/German-Traffic-Sign-Recognition (similar to LeNet)
 # with few modifications added
+
+# 1: use sigmoid instead of softmax and threshold probability
+
+# or 2: add background noise class
+
 class TrafficSignNet_v4:
     @staticmethod
     def build(width, height, depth, classes):

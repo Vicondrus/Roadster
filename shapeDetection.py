@@ -1,26 +1,9 @@
+import os
+from math import sqrt
+
 import cv2
 import imutils
 import numpy as np
-from math import sqrt
-from tensorflow.keras.models import load_model
-from skimage import exposure, io
-from skimage import transform
-import voting
-
-models = []
-model = load_model(".\\output\\germansignsnet3.5")
-models.append(model)
-model = load_model(".\\output\\germansignsnet1.5")
-models.append(model)
-model = load_model(".\\output\\germansignsnet4.1")
-models.append(model)
-labelNames = open("signnames.csv").read().strip().split("\n")[1:]
-labelNames = [l.split(",")[1] for l in labelNames]
-
-label = None
-prevAcc = None
-
-i = 0
 
 
 # save images extracted from video
@@ -79,9 +62,14 @@ def filterColors(image):
 
     mask5 = cv2.inRange(img_filtered, low_yellow, high_yellow)
 
-    img_filtered = mask1 + mask2 + mask3 + mask4 + mask5
+    low_black = np.array([0, 0, 0])
+    high_black = np.array([180, 255, 0])
+
+    mask6 = cv2.inRange(img_filtered, low_black, high_black)
+
+    img_filtered = mask1 + mask2 + mask3 + mask4 + mask5 + mask6
     output_img = image.copy()
-    output_img[np.where(img_filtered == 0)] = 0
+    output_img[np.where(img_filtered == 0)] = 20
 
     cv2.imshow("masked", output_img)
 
@@ -119,11 +107,9 @@ def binarization(image):
     return thresh
 
 
-def preprocess_image(image):
-    image = constrastLimit(image)
-    image = filterColors(image)
-    image = auto_canny(image)
-    image = binarization(image)
+def preprocess_image(image, operations_list):
+    for operation in operations_list:
+        image = operation(image)
     return image
 
 
@@ -134,7 +120,7 @@ def removeSmallComponents(image, threshold):
     sizes = stats[1:, -1];
     nb_components = nb_components - 1
 
-    img2 = np.zeros((output.shape), dtype=np.uint8)
+    img2 = np.zeros(output.shape, dtype=np.uint8)
     # for every component in the image, you keep it only if it's above threshold
     for i in range(0, nb_components):
         if sizes[i] >= threshold:
@@ -164,9 +150,9 @@ def contourIsSign(perimeter, centroid, threshold):
     temp = sum((1 - s) for s in signature)
     temp = temp / len(signature)
 
-    if temp < threshold:  # is  the sign
+    if temp < threshold:  # is sign
         return True, max_value + 2
-    else:  # is not the sign
+    else:  # is not sign
 
         return False, max_value + 2
 
@@ -198,24 +184,22 @@ def cropSign(image, coordinate, diff=10):
     return image[top:bottom, left:right]
 
 
-def findLargestSign(image, contours, threshold, distance_theshold):
-    global prevAcc, label
-    global i
+def findLargestSign(image, contours, threshold, distance_threshold):
     max_distance = 0
     coordinate = None
     sign = None
     for c in contours:
 
-        M = cv2.moments(c)
-        if M["m00"] == 0:
+        m = cv2.moments(c)
+        if m["m00"] == 0:
             continue
-        cX = int(M["m10"] / M["m00"])
-        cY = int(M["m01"] / M["m00"])
-        is_sign, distance = contourIsSign(c, [cX, cY], 1 - threshold)
-        if is_sign and distance > max_distance and distance > distance_theshold:
+        c_x = int(m["m10"] / m["m00"])
+        c_y = int(m["m01"] / m["m00"])
+        is_sign, distance = contourIsSign(c, [c_x, c_y], 1 - threshold)
+        if is_sign and distance > max_distance and distance > distance_threshold:
             contour = image.copy()
             cv2.drawContours(contour, c, -1, (0, 255, 0), 2)
-            cv2.circle(contour, (cX, cY), 5, (255, 0, 0), 2)
+            cv2.circle(contour, (c_x, c_y), 5, (255, 0, 0), 2)
             max_distance = distance
             coordinate = np.reshape(c, [-1, 2])
             left, top = np.amin(coordinate, axis=0)
@@ -225,31 +209,15 @@ def findLargestSign(image, contours, threshold, distance_theshold):
             # sign = constrastLimit(sign)
             cv2.imshow("sign", sign)
 
-            i += 1
-
             cv2.imshow("contour", contour)
             cv2.waitKey(1)
             sign = cv2.cvtColor(sign, cv2.COLOR_BGR2RGB)
-            obj = transform.resize(sign, (32, 32))
-            obj = exposure.equalize_adapthist(obj, clip_limit=0.1)
-
-            cv2.imshow("again", obj)
-
-            obj = obj.astype("float32") / 255.0
-            obj = np.expand_dims(obj, axis=0)
-
-            # print(preds.max(axis=1)[0], labelNames[preds.argmax(axis=1)[0]])
-            j = voting.vote_on_image(models, sign)
-            if j is not None:
-                label = labelNames[j]
-    return sign, coordinate, label
+    return sign, coordinate
 
 
-def localization(image, min_size_components, similitary_contour_with_circle):
+def localization(image, min_size_components, similitude_contour_with_circle):
     original_image = image.copy()
-    binary_image = preprocess_image(image)
-
-    label = None
+    binary_image = preprocess_image(image, [constrastLimit, filterColors, auto_canny, binarization])
 
     binary_image = removeSmallComponents(binary_image, min_size_components)
     cv2.imshow('BINARY IMAGE', binary_image)
@@ -257,26 +225,56 @@ def localization(image, min_size_components, similitary_contour_with_circle):
     contours = findContour(binary_image)
     # signs, coordinates = findSigns(image, contours, similitary_contour_with_circle, 15)
     if contours is not None:
-        sign, coordinate, label = findLargestSign(original_image, contours, similitary_contour_with_circle, 15)
+        sign, coordinate = findLargestSign(original_image, contours, similitude_contour_with_circle, 15)
     else:
         coordinate = [(0, 0), (0, 0)]
         sign = None
 
-    return coordinate, original_image, label, sign
+    return coordinate, original_image, sign
 
 
-vidcap = cv2.VideoCapture('video/video9.mp4')
+def end():
+    cv2.destroyAllWindows()
 
-while True:
-    success, frame = vidcap.read()
-    if success is False:
-        break
-    coordinate, image, label, sign = localization(frame, 300, 0.65)
-    if cv2.waitKey(1) & 0xFF == ord('q'):
-        break
-    cv2.putText(frame, label, (5, 15), cv2.FONT_HERSHEY_SIMPLEX,
-                0.5, (255, 0, 255), 2)
-    cv2.imshow("Video", frame)
 
-vidcap.release()
-cv2.destroyAllWindows()
+def extract_random_objects(image, min_size_components):
+    global i
+    original_image = image.copy()
+    binary_image = preprocess_image(image, [constrastLimit, auto_canny, binarization])
+
+    binary_image = removeSmallComponents(binary_image, min_size_components)
+    contours = findContour(binary_image)
+
+    os.chdir('D:/Users/Victor/Documents/GitHub/Roadster/data/randomObjects')
+
+    if contours is not None:
+        for c in contours:
+            coordinate = np.reshape(c, [-1, 2])
+            left, top = np.amin(coordinate, axis=0)
+            right, bottom = np.amax(coordinate, axis=0)
+            coordinate = [(left - 2, top - 2), (right + 3, bottom + 1)]
+            obj = cropSign(image, coordinate)
+            cv2.imshow("object", obj)
+            cv2.waitKey(1)
+            cv2.imwrite("randObj" + str(i) + "Video9.jpg", obj)
+            i+=1
+
+
+i = 0
+
+
+def main():
+    vidcap = cv2.VideoCapture('video/video9.mp4')
+
+    while True:
+        success, frame = vidcap.read()
+        if success is False:
+            break
+        extract_random_objects(frame, 300)
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            break
+        cv2.imshow("Video", frame)
+
+    vidcap.release()
+    cv2.destroyAllWindows()
+

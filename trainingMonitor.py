@@ -1,12 +1,11 @@
-from functools import singledispatch
-
-from tensorflow.keras.callbacks import BaseLogger
-import matplotlib.pyplot as plot
-import numpy as np
 import json
 import os
+from functools import singledispatch
+
 import cv2
-import glob
+import matplotlib.pyplot as plot
+import numpy as np
+from tensorflow.keras.callbacks import BaseLogger
 
 
 @singledispatch
@@ -64,8 +63,8 @@ class TrainingMonitor(BaseLogger):
             plot.xlabel("Epoch #")
             plot.ylabel("Loss/Accuracy")
             plot.legend(loc="lower left")
-            test = self.figPath.split('.')[1]+"total.png"
-            plot.savefig("."+self.figPath.split('.')[1]+"total.png")
+            test = self.figPath.split('.')[1] + "total.png"
+            plot.savefig("." + self.figPath.split('.')[1] + "total.png")
             plot.close()
 
             N = np.arange(0, len(self.H["accuracy"]))
@@ -78,7 +77,7 @@ class TrainingMonitor(BaseLogger):
             plot.xlabel("Epoch #")
             plot.ylabel("Accuracy")
             plot.legend()
-            plot.savefig("."+self.figPath.split('.')[1]+"acc.png")
+            plot.savefig("." + self.figPath.split('.')[1] + "acc.png")
             plot.close()
 
             N = np.arange(0, len(self.H["loss"]))
@@ -92,16 +91,16 @@ class TrainingMonitor(BaseLogger):
             plot.ylabel("Loss")
             plot.legend()
 
-            plot.savefig("."+self.figPath.split('.')[1]+"loss.png")
+            plot.savefig("." + self.figPath.split('.')[1] + "loss.png")
             plot.close()
 
-            data_path = os.path.join("."+self.figPath.split('.')[1]+"total.png")
+            data_path = os.path.join("." + self.figPath.split('.')[1] + "total.png")
             image = cv2.imread(data_path, cv2.IMREAD_UNCHANGED)
             cv2.imshow("total", image)
-            data_path = os.path.join("."+self.figPath.split('.')[1] + "acc.png")
+            data_path = os.path.join("." + self.figPath.split('.')[1] + "acc.png")
             image = cv2.imread(data_path, cv2.IMREAD_UNCHANGED)
             cv2.imshow("acc", image)
-            data_path = os.path.join("."+self.figPath.split('.')[1] + "loss.png")
+            data_path = os.path.join("." + self.figPath.split('.')[1] + "loss.png")
             image = cv2.imread(data_path, cv2.IMREAD_UNCHANGED)
             cv2.imshow("loss", image)
             cv2.waitKey(1)

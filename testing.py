@@ -1,24 +1,10 @@
-from trafficSignCnn_v3 import TrafficSignNet_v3
-from tensorflow.keras.preprocessing.image import ImageDataGenerator
-from tensorflow.keras.optimizers import Adam
-from tensorflow.keras.utils import to_categorical
-from sklearn.metrics import classification_report
-from skimage import transform
-from skimage import exposure
-from skimage import io
-
-import matplotlib.pyplot as plot
-
-import tensorflow as tf
 import collections
 
+import matplotlib.pyplot as plot
+import tensorflow as tf
+from sklearn.metrics import classification_report
+
 import util
-
-import numpy as np
-import random
-import os
-
-from trainingMonitor import TrainingMonitor
 
 
 def plotStats():
@@ -35,19 +21,26 @@ def plotStats():
 
 
 def evalModel():
-    model = tf.keras.models.load_model(".\\output\\germansignsnet4.1")
+    model = tf.keras.models.load_model(".\\output\\germansignsnet3.5")
 
     evalX, evalY = util.load_data_and_labels(".\\data\\germanRoadsigns2", ".\\data\\germanRoadsigns2\\Eval.csv")
 
-    stats, top5 = util.evaluate(model, evalX, evalY)
+    labelNames = open("signnames.csv").read().strip().split("\n")[1:]
+    labelNames = [l.split(",")[1] for l in labelNames]
 
-    evalX = list(evalX)
-    evalY = list(evalY)
+    stats, top5, report, confusion = util.evaluate(model, evalX, evalY, labelNames)
 
-    util.writeTopToCSV('.\\output\\germansignsnet4.1\\top5.csv', top5)
+    f = open("output/germansignsnet3.5eval/classification_report.txt", "w+")
+    f.write(report)
+    f.close()
+
+    tf.print(confusion)
+
+    util.writeTopToCSV('.\\output\\germansignsnet3.5eval\\top5.csv', top5)
 
     plot.bar(range(len(stats)), list(stats.values()), align='center')
     plot.xticks(range(len(stats)), list(stats.keys()))
-    plot.savefig(".\\output\\germansignsnet4.1\\stats.jpg")
+    plot.savefig(".\\output\\germansignsnet3.5eval\\stats.jpg")
 
-plotStats()
+
+evalModel()

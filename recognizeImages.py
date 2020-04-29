@@ -1,14 +1,15 @@
-from tensorflow.keras.models import load_model
-from skimage import transform
+import argparse
+import os
+import random
+
+import cv2
+import imutils
+import numpy as np
+from imutils import paths
 from skimage import exposure
 from skimage import io
-from imutils import paths
-import numpy as np
-import argparse
-import imutils
-import random
-import cv2
-import os
+from skimage import transform
+from tensorflow.keras.models import load_model
 
 ap = argparse.ArgumentParser()
 ap.add_argument("-m", "--model", required=True, help="path to pre-trained traffic sign recognizer")
@@ -37,7 +38,7 @@ for (i, imagePath) in enumerate(imagePaths):
 
     preds = model.predict(image)
     print(preds.max(axis=1), preds.argmax(axis=1))
-    #cv2.waitKey()
+    # cv2.waitKey()
     j = preds.argmax(axis=1)[0]
     label = labelNames[j]
 

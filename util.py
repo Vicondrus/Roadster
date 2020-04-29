@@ -1,14 +1,15 @@
-import argparse
-import shutil
+import csv
 import os
 import random
-import csv
-
-from skimage import transform
-from skimage import exposure
-from skimage import io
+import shutil
 
 import numpy as np
+from keras.utils import to_categorical
+from skimage import exposure
+from skimage import io
+from skimage import transform
+from sklearn.metrics import classification_report
+from tensorflow import math
 
 
 def makeTop5Stats(name):
@@ -38,7 +39,7 @@ def makeTop5Stats(name):
 
 def makeLabelCsv(basePath, csvName):
     root_dir = os.path.abspath(basePath)
-    writer = csv.writer(open(os.path.sep.join([basePath, csvName+".csv"]), "w"), delimiter=",", lineterminator="\n")
+    writer = csv.writer(open(os.path.sep.join([basePath, csvName + ".csv"]), "w"), delimiter=",", lineterminator="\n")
     header = ["Width", "Height", "Roi.X1", "Roi.Y1", "Roi.X2", "Roi.Y2", "ClassId", "Path"]
     writer.writerow(header)
     for item in os.listdir(root_dir):
@@ -46,8 +47,24 @@ def makeLabelCsv(basePath, csvName):
         if not os.path.isdir(item_full_path):
             continue
         for image in os.listdir(item_full_path):
-            row = ["X", "X", "X", "X", "X", "X", item, item+"/"+image]
+            row = ["X", "X", "X", "X", "X", "X", item, item + "/" + image]
             writer.writerow(row)
+
+
+def augmentLabels(basePath, csvName, forTest=False):
+    root_dir = os.path.abspath(basePath)
+    writer = csv.writer(open(os.path.sep.join([basePath, csvName + '.csv']), 'a'), delimiter=",", lineterminator="\n")
+    for item in os.listdir(os.path.sep.join([basePath, csvName])):
+        if item == '-1':
+            item_full_path = os.path.sep.join([root_dir, csvName, item])
+            if not os.path.isdir(item_full_path):
+                continue
+            for image in os.listdir(item_full_path):
+                if not forTest:
+                    row = ["X", "X", "X", "X", "X", "X", item, csvName + "/" + item + "/" + image]
+                else:
+                    row = ["X", "X", "X", "X", "X", "X", item, csvName + "/" + image]
+                writer.writerow(row)
 
 
 def split_to_train_and_eval(basePath, csvPath, newPath, evalsize=20):
@@ -110,7 +127,7 @@ def writeTopToCSV(name, list):
             top_writer.writerow(top)
 
 
-def evaluate(model, evalX, evalY):
+def evaluate(model, evalX, evalY, labelNames):
     stats = {0: 0, 1: 0, 2: 0, 3: 0}
     top5 = []
     for i, image in enumerate(evalX):
@@ -131,7 +148,16 @@ def evaluate(model, evalX, evalY):
         else:
             stats[3] += 1
         top5.append([top[0][0], top[0][1], top[0][2], top[0][3], top[0][4], evalY[i]])
-    return stats, top5
+
+    numLabels = len(np.unique(evalY))
+    evalY = to_categorical(evalY, numLabels)
+    evalX = np.array(evalX, dtype=np.float32) / 255.0
+
+    predictions = model.predict(evalX)
+    report = classification_report(evalY.argmax(axis=1), predictions.argmax(axis=1), target_names=labelNames)
+    confusion = math.confusion_matrix(evalY.argmax(axis=1), predictions.argmax(axis=1))
+
+    return stats, top5, report, confusion
 
 
 # split training data again into TRAINING and FINAL EVALUATION/TESTING - DISJOINT

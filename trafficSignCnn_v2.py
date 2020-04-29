@@ -1,11 +1,7 @@
 import tensorflow as tf
-from tensorflow.keras.layers import BatchNormalization
-from tensorflow.keras.layers import Conv2D
-from tensorflow.keras.layers import MaxPooling2D
 from tensorflow.keras.layers import Activation
-from tensorflow.keras.layers import Flatten
-from tensorflow.keras.layers import Dropout
 from tensorflow.keras.layers import Dense
+from tensorflow.keras.layers import Dropout
 
 
 # learning transfer from MobileNetV2
@@ -23,7 +19,7 @@ class TrafficSignNet_v2:
 
         # fine_tune_at = 80 * len(base_model.layers) / 100
 
-        #for layer in base_model.layers[:int(fine_tune_at)]:
+        # for layer in base_model.layers[:int(fine_tune_at)]:
         #    layer.trainable = False
 
         global_average_layer = tf.keras.layers.GlobalAveragePooling2D()

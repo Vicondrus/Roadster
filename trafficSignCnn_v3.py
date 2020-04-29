@@ -1,7 +1,6 @@
-from keras.layers import Dense, Dropout, Flatten, Input
-from keras.layers import Conv2D, MaxPooling2D
 from keras.layers import BatchNormalization
-from keras.optimizers import Adam
+from keras.layers import Conv2D, MaxPooling2D
+from keras.layers import Dense, Dropout, Flatten
 from keras.models import Sequential
 
 hidden_num_units = 2048

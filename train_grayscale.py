@@ -1,26 +1,21 @@
-import matplotlib
-
-from trafficSignCnn_v4 import TrafficSignNet_v4
-from tensorflow.keras.preprocessing.image import ImageDataGenerator
-from tensorflow.keras.optimizers import Adam
-from tensorflow.keras.utils import to_categorical
-from sklearn.metrics import classification_report
-from skimage import transform
-from skimage import exposure
-from skimage import io
-
-import matplotlib.pyplot as plot
-
-import tensorflow as tf
-import numpy as np
 import argparse
-import random
-import os
 import csv
+import os
+import random
 
 import cv2
+import matplotlib
+import matplotlib.pyplot as plot
+import numpy as np
+from keras.callbacks import EarlyStopping
+from skimage import io
+from skimage import transform
+from sklearn.metrics import classification_report
+from tensorflow.keras.optimizers import Adam
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
+from tensorflow.keras.utils import to_categorical
 
-from keras.callbacks import ModelCheckpoint, EarlyStopping
+from trafficSignCnn_v4 import TrafficSignNet_v4
 from trainingMonitor import TrainingMonitor
 
 matplotlib.use("Agg")
@@ -147,6 +142,7 @@ print("[INFO] loading training, validation and evaluation data...")
 evalXDum = list(evalX)
 evalYDum = list(evalY)
 
+
 # evalX = np.array(evalX, dtype=np.float32) / 255.0
 
 # scale to [0, 1]
@@ -233,7 +229,6 @@ H = model.fit_generator(
 print("[INFO] serializing network to '{}'...".format(args["model"]))
 model.save(args["model"])
 
-
 stats, top5 = evaluate(model, evalXDum, evalYDum)
 
 writeTopToCSV(args["model"] + '\\top5.csv', top5)
@@ -255,13 +250,13 @@ print(classification_report(evalY.argmax(axis=1), predictions.argmax(axis=1), ta
 
 # for each prediction print top 5 and what it should have been
 
-N = np.arange(0, len(H.history["loss"]))
+N = np.arange(0, len(H["loss"]))
 plot.style.use("ggplot")
 plot.figure()
-plot.plot(len(H.history["loss"]), H.history["loss"], label="train_loss")
-plot.plot(len(H.history["val_loss"]), H.history["val_loss"], label="val_loss")
-plot.plot(len(H.history["accuracy"]), H.history["accuracy"], label="train_acc")
-plot.plot(len(H.history["val_accuracy"]), H.history["val_accuracy"], label="val_acc")
+plot.plot(len(H["loss"]), H.history["loss"], label="train_loss")
+plot.plot(len(H["val_loss"]), H.history["val_loss"], label="val_loss")
+plot.plot(len(H["accuracy"]), H.history["accuracy"], label="train_acc")
+plot.plot(len(H["val_accuracy"]), H.history["val_accuracy"], label="val_acc")
 plot.title("Training Loss and Accuracy on Dataset")
 plot.xlabel("Epoch #")
 plot.ylabel("Loss/Accuracy")
