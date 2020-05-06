@@ -46,6 +46,6 @@ class TrafficSignNet_v4:
 
         model.add(Dropout(0.3))
         model.add(Dense(classes))
-        model.add(Activation("softmax"))
+        model.add(Activation("sigmoid"))
 
         return model

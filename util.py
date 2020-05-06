@@ -3,7 +3,9 @@ import os
 import random
 import shutil
 
+import tensorflow as tf
 import numpy as np
+import matplotlib as plt
 from keras.utils import to_categorical
 from skimage import exposure
 from skimage import io

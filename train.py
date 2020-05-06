@@ -9,13 +9,22 @@ import numpy as np
 from keras.callbacks import EarlyStopping
 from skimage import exposure
 from skimage import io
+import io as io_simple
 from skimage import transform
 from sklearn.metrics import classification_report
 from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.utils import to_categorical
 from keras.callbacks import TensorBoard
+import tensorflow as tf
+import keras
 
+import pandas as pd
+import seaborn as sns
+
+from trafficSignCnn_v1 import TrafficSignNet_v1
+from trafficSignCnn_v2 import TrafficSignNet_v2
+from trafficSignCnn_v3 import TrafficSignNet_v3
 from trafficSignCnn_v4 import TrafficSignNet_v4
 from trainingMonitor import TrainingMonitor
 
@@ -164,21 +173,57 @@ print("[INFO] compiling model...")
 base_learning_rate = 0.0001
 
 opt = Adam(lr=INIT_LR, decay=INIT_LR / (NUM_EPOCHS * 0.5))
-model = TrafficSignNet_v4.build(width=32, height=32, depth=3, classes=numLabels)
+model = TrafficSignNet_v1.build(width=32, height=32, depth=3, classes=numLabels)
 
-model.compile(loss='categorical_crossentropy', optimizer=opt, metrics=['accuracy'])
+file_writer = tf.summary.create_file_writer("logs\\fit\\" + args["output"] + "\\cm")
 
+
+def log_confusion_matrix(epoch, logs):
+    # Use the model to predict the values from the validation dataset.
+    test_pred = model.predict(testX)
+
+    con_mat = tf.math.confusion_matrix(labels=testY.argmax(axis=1), predictions=test_pred.argmax(axis=1)).numpy()
+    con_mat_norm = np.around(con_mat.astype('float') / con_mat.sum(axis=1)[:, np.newaxis], decimals=2)
+
+    classes = [i for i in range(numLabels)]
+
+    con_mat_df = pd.DataFrame(con_mat_norm,
+                              index=classes,
+                              columns=classes)
+
+    figure = plot.figure(figsize=(16, 16))
+    sns.heatmap(con_mat_df, annot=True, cmap=plot.cm.Blues)
+    plot.tight_layout()
+    plot.ylabel('True label')
+    plot.xlabel('Predicted label')
+
+    buf = io_simple.BytesIO()
+    plot.savefig(buf, format='png')
+
+    plot.close(figure)
+    buf.seek(0)
+    image = tf.image.decode_png(buf.getvalue(), channels=4)
+
+    image = tf.expand_dims(image, 0)
+
+    # Log the confusion matrix as an image summary.
+    with file_writer.as_default():
+        tf.summary.image("Confusion Matrix", image, step=epoch)
+
+
+cm_callback = keras.callbacks.LambdaCallback(on_epoch_end=log_confusion_matrix)
+
+model.compile(loss='binary_crossentropy', optimizer=opt, metrics=['accuracy'])
 
 log_dir = "logs\\fit\\" + args["output"]
 tensorboard_callback = TensorBoard(log_dir=log_dir, histogram_freq=1)
-
 
 # training monitor
 figPath = os.path.sep.join([args["output"], "{}.png".format(os.getpid())])
 jsonPath = os.path.sep.join([args["output"], "{}.json".format(os.getpid())])
 
 callbacks = [TrainingMonitor(figPath, jsonPath=jsonPath),
-             EarlyStopping(monitor='val_loss', mode='min', verbose=1, patience=5), tensorboard_callback]
+             tensorboard_callback, cm_callback, EarlyStopping(monitor='val_loss', mode='min', verbose=1, patience=10)]
 
 print("[INFO] training network...")
 H = model.fit_generator(
@@ -213,7 +258,6 @@ predictions = model.predict(evalX, batch_size=BS)
 f = open(args["model"] + "/classification_report.txt", "w+")
 f.write(classification_report(evalY.argmax(axis=1), predictions.argmax(axis=1), target_names=labelNames))
 f.close()
-
 
 # add evaluation part
 # for each model find how many were predicted right first try

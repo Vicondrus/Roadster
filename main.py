@@ -1,22 +1,22 @@
 import cv2
 from tensorflow.keras.models import load_model
 
-import shapeDetection
+import classicalShapeDetection
 import voting
 
 
 def main():
     models = []
-    model = load_model(".\\output\\germansignsnet3.6")
+    model = load_model(".\\output\\germansignsnet3.7")
     models.append(model)
-    model = load_model(".\\output\\germansignsnet1.5")
+    model = load_model(".\\output\\germansignsnet1.8")
     models.append(model)
-    model = load_model(".\\output\\germansignsnet4.2")
+    model = load_model(".\\output\\germansignsnet4.3")
     models.append(model)
     labelNames = open("signnames.csv").read().strip().split("\n")[1:]
     labelNames = [l.split(",")[1] for l in labelNames]
 
-    vidcap = cv2.VideoCapture('video/video6.mp4')
+    vidcap = cv2.VideoCapture('video/video9.mp4')
 
     label = None
 
@@ -24,8 +24,9 @@ def main():
         success, frame = vidcap.read()
         if success is False:
             break
-        coordinate, image, sign = shapeDetection.localization(frame, 300, 0.65)
+        coordinate, image, sign = classicalShapeDetection.localization(frame, 300, 0.65)
         if sign is not None:
+            # yoloShapeDetection.recognizeObjects(image, confidence_thresh=0.4)
             j = voting.vote_on_image(models, sign)
             if j is not None:
                 label = labelNames[j]
@@ -40,7 +41,7 @@ def main():
 
     vidcap.release()
     cv2.destroyAllWindows()
-    shapeDetection.end()
+    classicalShapeDetection.end()
 
 
 main()

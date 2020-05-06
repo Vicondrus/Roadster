@@ -41,6 +41,6 @@ class TrafficSignNet_v3:
                             Dropout(0.3),
                             Dense(units=hidden_num_units2, activation='relu'),
                             Dropout(0.3),
-                            Dense(units=classes, input_dim=hidden_num_units, activation='softmax'),
+                            Dense(units=classes, input_dim=hidden_num_units, activation='sigmoid'),
                             ])
         return model
