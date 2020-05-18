@@ -1,68 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9cde44e4-cd23-4f31-9ef1-d32027d02f60" name="Default Changelist" comment="model created&#10;-may need a graph">
-      <change afterPath="$PROJECT_DIR$/dicts/dict4.4/4144.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/fit/dicts/dict4.4/cm/events.out.tfevents.1589128506.AORUS-B450.4144.359.v2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/fit/dicts/dict4.4/train/events.out.tfevents.1589128506.AORUS-B450.4144.440.v2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/fit/dicts/dict4.4/train/events.out.tfevents.1589128506.AORUS-B450.profile-empty" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/fit/dicts/dict4.4/train/plugins/profile/2020-05-10_19-35-06/local.trace" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/fit/dicts/dict4.4/validation/events.out.tfevents.1589128552.AORUS-B450.4144.190705.v2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/output/germansignsnet4.4/classification_report.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/output/germansignsnet4.4/classstats.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/output/germansignsnet4.4/saved_model.pb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/output/germansignsnet4.4/stats.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/output/germansignsnet4.4/top5.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/output/germansignsnet4.4/variables/variables.data-00000-of-00001" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/output/germansignsnet4.4/variables/variables.index" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SigmoidNAN.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classicalShapeDetection.py" beforeDir="false" afterPath="$PROJECT_DIR$/classicalShapeDetection.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dicts/dict1.6/16496.json" beforeDir="false" afterPath="$PROJECT_DIR$/dicts/dict1.6/16496.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dicts/dict1.7/6868.json" beforeDir="false" afterPath="$PROJECT_DIR$/dicts/dict1.7/6868.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dicts/dict1.7/8564.json" beforeDir="false" afterPath="$PROJECT_DIR$/dicts/dict1.7/8564.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dicts/dict1.7/9444.json" beforeDir="false" afterPath="$PROJECT_DIR$/dicts/dict1.7/9444.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dicts/dict1.8/11440.json" beforeDir="false" afterPath="$PROJECT_DIR$/dicts/dict1.8/11440.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dicts/dict1.8/14360.json" beforeDir="false" afterPath="$PROJECT_DIR$/dicts/dict1.8/14360.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dicts/dict1.8/1604.json" beforeDir="false" afterPath="$PROJECT_DIR$/dicts/dict1.8/1604.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dicts/dict1.8/1692.json" beforeDir="false" afterPath="$PROJECT_DIR$/dicts/dict1.8/1692.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dicts/dict1.8/17480.json" beforeDir="false" afterPath="$PROJECT_DIR$/dicts/dict1.8/17480.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dicts/dict1.8/18288.json" beforeDir="false" afterPath="$PROJECT_DIR$/dicts/dict1.8/18288.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dicts/dict1.8/6648.json" beforeDir="false" afterPath="$PROJECT_DIR$/dicts/dict1.8/6648.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dicts/dict1.8/8988.json" beforeDir="false" afterPath="$PROJECT_DIR$/dicts/dict1.8/8988.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dicts/dict1.8/9128.json" beforeDir="false" afterPath="$PROJECT_DIR$/dicts/dict1.8/9128.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dicts/dict1.8/9464.json" beforeDir="false" afterPath="$PROJECT_DIR$/dicts/dict1.8/9464.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dicts/dict1.8/9608.json" beforeDir="false" afterPath="$PROJECT_DIR$/dicts/dict1.8/9608.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dicts/dict1acc.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dicts/dict1loss.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dicts/dict1total.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dicts/dict3.6/11836.json" beforeDir="false" afterPath="$PROJECT_DIR$/dicts/dict3.6/11836.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dicts/dict3.6/15412.json" beforeDir="false" afterPath="$PROJECT_DIR$/dicts/dict3.6/15412.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dicts/dict3.7/17876.json" beforeDir="false" afterPath="$PROJECT_DIR$/dicts/dict3.7/17876.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dicts/dict4.2/15032.json" beforeDir="false" afterPath="$PROJECT_DIR$/dicts/dict4.2/15032.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dicts/dict4.2/20384.json" beforeDir="false" afterPath="$PROJECT_DIR$/dicts/dict4.2/20384.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dicts/dict4.2/20888.json" beforeDir="false" afterPath="$PROJECT_DIR$/dicts/dict4.2/20888.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dicts/dict4.2/6844.json" beforeDir="false" afterPath="$PROJECT_DIR$/dicts/dict4.2/6844.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dicts/dict4.2/8028.json" beforeDir="false" afterPath="$PROJECT_DIR$/dicts/dict4.2/8028.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dicts/dict4.2/8268.json" beforeDir="false" afterPath="$PROJECT_DIR$/dicts/dict4.2/8268.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dicts/dict4.2/9060.json" beforeDir="false" afterPath="$PROJECT_DIR$/dicts/dict4.2/9060.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dicts/dict4.3/11332.json" beforeDir="false" afterPath="$PROJECT_DIR$/dicts/dict4.3/11332.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dicts/dict4.3/11604.json" beforeDir="false" afterPath="$PROJECT_DIR$/dicts/dict4.3/11604.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dicts/dict4.3/12852.json" beforeDir="false" afterPath="$PROJECT_DIR$/dicts/dict4.3/12852.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dicts/dict4.3/14952.json" beforeDir="false" afterPath="$PROJECT_DIR$/dicts/dict4.3/14952.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dicts/dict4.3/2360.json" beforeDir="false" afterPath="$PROJECT_DIR$/dicts/dict4.3/2360.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dicts/dict4.3/7852.json" beforeDir="false" afterPath="$PROJECT_DIR$/dicts/dict4.3/7852.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dicts/dict4.3/8204.json" beforeDir="false" afterPath="$PROJECT_DIR$/dicts/dict4.3/8204.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dicts/dict4.3/8820.json" beforeDir="false" afterPath="$PROJECT_DIR$/dicts/dict4.3/8820.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing.py" beforeDir="false" afterPath="$PROJECT_DIR$/testing.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/total.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train_grayscale.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/util.py" beforeDir="false" afterPath="$PROJECT_DIR$/util.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/violaJonesDetection.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/voting.py" beforeDir="false" afterPath="$PROJECT_DIR$/voting.py" afterDir="false" />
-    </list>
+    <list default="true" id="9cde44e4-cd23-4f31-9ef1-d32027d02f60" name="Default Changelist" comment="model created&#10;-may need a graph" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -280,7 +219,7 @@
       <workItem from="1589116855334" duration="10034000" />
       <workItem from="1589291570242" duration="2386000" />
       <workItem from="1589477724790" duration="1024000" />
-      <workItem from="1589793029750" duration="4576000" />
+      <workItem from="1589793029750" duration="4886000" />
     </task>
     <task id="LOCAL-00001" summary="model created&#10;-may need a graph">
       <created>1582921688120</created>
