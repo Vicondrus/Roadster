@@ -157,18 +157,6 @@ def contourIsSign(perimeter, centroid, threshold):
         return False, max_value + 2
 
 
-# crop sign
-def cropContour(image, center, max_distance):
-    width = image.shape[1]
-    height = image.shape[0]
-    top = max([int(center[0] - max_distance), 0])
-    bottom = min([int(center[0] + max_distance + 1), height - 1])
-    left = max([int(center[1] - max_distance), 0])
-    right = min([int(center[1] + max_distance + 1), width - 1])
-    print(left, right, top, bottom)
-    return image[left:right, top:bottom]
-
-
 def cropSign(image, coordinate, diff=10):
     width = image.shape[1]
     height = image.shape[0]
@@ -217,7 +205,7 @@ def findLargestSign(image, contours, threshold, distance_threshold):
 
 def localization(image, min_size_components, similitude_contour_with_circle):
     original_image = image.copy()
-    binary_image = preprocess_image(image, [constrastLimit, filterColors, auto_canny, binarization])
+    binary_image = preprocess_image(image, [constrastLimit, filterColors, auto_canny])
 
     binary_image = removeSmallComponents(binary_image, min_size_components)
     cv2.imshow('BINARY IMAGE', binary_image)
@@ -257,7 +245,7 @@ def extract_random_objects(image, min_size_components):
             cv2.imshow("object", obj)
             cv2.waitKey(1)
             cv2.imwrite("randObj" + str(i) + "Video9.jpg", obj)
-            i+=1
+            i += 1
 
 
 i = 0
@@ -277,4 +265,3 @@ def main():
 
     vidcap.release()
     cv2.destroyAllWindows()
-

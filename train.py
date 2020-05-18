@@ -1,30 +1,26 @@
 import argparse
 import csv
+import io as io_simple
 import os
 import random
 
+import keras
 import matplotlib
 import matplotlib.pyplot as plot
 import numpy as np
+import pandas as pd
+import seaborn as sns
+import tensorflow as tf
 from keras.callbacks import EarlyStopping
+from keras.callbacks import TensorBoard
 from skimage import exposure
 from skimage import io
-import io as io_simple
 from skimage import transform
 from sklearn.metrics import classification_report
 from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.utils import to_categorical
-from keras.callbacks import TensorBoard
-import tensorflow as tf
-import keras
 
-import pandas as pd
-import seaborn as sns
-
-from trafficSignCnn_v1 import TrafficSignNet_v1
-from trafficSignCnn_v2 import TrafficSignNet_v2
-from trafficSignCnn_v3 import TrafficSignNet_v3
 from trafficSignCnn_v4 import TrafficSignNet_v4
 from trainingMonitor import TrainingMonitor
 
@@ -173,7 +169,7 @@ print("[INFO] compiling model...")
 base_learning_rate = 0.0001
 
 opt = Adam(lr=INIT_LR, decay=INIT_LR / (NUM_EPOCHS * 0.5))
-model = TrafficSignNet_v1.build(width=32, height=32, depth=3, classes=numLabels)
+model = TrafficSignNet_v4.build(width=32, height=32, depth=3, classes=numLabels)
 
 file_writer = tf.summary.create_file_writer("logs\\fit\\" + args["output"] + "\\cm")
 

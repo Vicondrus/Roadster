@@ -11,12 +11,12 @@ def main():
     models.append(model)
     model = load_model(".\\output\\germansignsnet1.8")
     models.append(model)
-    model = load_model(".\\output\\germansignsnet4.3")
+    model = load_model(".\\output\\germansignsnet4.4")
     models.append(model)
     labelNames = open("signnames.csv").read().strip().split("\n")[1:]
     labelNames = [l.split(",")[1] for l in labelNames]
 
-    vidcap = cv2.VideoCapture('video/video9.mp4')
+    vidcap = cv2.VideoCapture('video/video5.mp4')
 
     label = None
 

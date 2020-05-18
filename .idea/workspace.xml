@@ -2,142 +2,65 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9cde44e4-cd23-4f31-9ef1-d32027d02f60" name="Default Changelist" comment="model created&#10;-may need a graph">
-      <change afterPath="$PROJECT_DIR$/SigmoidNAN.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dicts/dict1.6/16496.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dicts/dict1.6/dict1acc.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dicts/dict1.6/dict1loss.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dicts/dict1.6/dict1total.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dicts/dict1.7/6868.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dicts/dict1.7/8564.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dicts/dict1.7/9444.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dicts/dict1.7/dict1acc.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dicts/dict1.7/dict1loss.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dicts/dict1.7/dict1total.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dicts/dict1.8/11440.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dicts/dict1.8/14360.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dicts/dict1.8/1604.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dicts/dict1.8/1692.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dicts/dict1.8/17480.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dicts/dict1.8/18288.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dicts/dict1.8/6648.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dicts/dict1.8/8988.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dicts/dict1.8/9128.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dicts/dict1.8/9464.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dicts/dict1.8/9608.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dicts/dict1acc.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dicts/dict1loss.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dicts/dict1total.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dicts/dict3.6/15412.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dicts/dict3.7/17876.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dicts/dict3.7/dict3acc.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dicts/dict3.7/dict3loss.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dicts/dict3.7/dict3total.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dicts/dict4.3/11332.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dicts/dict4.3/11604.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dicts/dict4.3/12852.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dicts/dict4.3/14952.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dicts/dict4.3/2360.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dicts/dict4.3/7852.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dicts/dict4.3/8204.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dicts/dict4.3/8820.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dicts/dict4.3/dict4acc.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dicts/dict4.3/dict4loss.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dicts/dict4.3/dict4total.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/fit/dicts/dict1.6/train/events.out.tfevents.1588247338.AORUS-B450.16496.1084.v2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/fit/dicts/dict1.6/train/events.out.tfevents.1588247338.AORUS-B450.profile-empty" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/fit/dicts/dict1.6/train/plugins/profile/2020-04-30_14-48-58/local.trace" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/fit/dicts/dict1.6/validation/events.out.tfevents.1588247423.AORUS-B450.16496.401525.v2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/fit/dicts/dict1.7/train/events.out.tfevents.1588613421.AORUS-B450.profile-empty" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/fit/dicts/dict1.7/train/events.out.tfevents.1588617436.AORUS-B450.8564.1093.v2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/fit/dicts/dict1.7/train/plugins/profile/2020-05-04_21-37-17/local.trace" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/fit/dicts/dict1.7/validation/events.out.tfevents.1588617540.AORUS-B450.8564.401558.v2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/fit/dicts/dict1.8/cm/events.out.tfevents.1588760736.AORUS-B450.9128.1020.v2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/fit/dicts/dict1.8/train/events.out.tfevents.1588760736.AORUS-B450.9128.1101.v2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/fit/dicts/dict1.8/train/events.out.tfevents.1588760737.AORUS-B450.profile-empty" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/fit/dicts/dict1.8/train/plugins/profile/2020-05-06_13-25-37/local.trace" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/fit/dicts/dict1.8/validation/events.out.tfevents.1588760838.AORUS-B450.9128.401566.v2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/fit/dicts/dict3.6/train/events.out.tfevents.1588242598.AORUS-B450.15412.6287.v2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/fit/dicts/dict3.6/train/events.out.tfevents.1588242601.AORUS-B450.profile-empty" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/fit/dicts/dict3.6/train/plugins/profile/2020-04-30_13-30-01/local.trace" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/fit/dicts/dict3.6/validation/events.out.tfevents.1588242762.AORUS-B450.15412.11035.v2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/fit/dicts/dict3.7/train/events.out.tfevents.1588606012.AORUS-B450.17876.6334.v2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/fit/dicts/dict3.7/train/events.out.tfevents.1588606014.AORUS-B450.profile-empty" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/fit/dicts/dict3.7/train/plugins/profile/2020-05-04_18-26-54/local.trace" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/fit/dicts/dict3.7/validation/events.out.tfevents.1588606191.AORUS-B450.17876.11082.v2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/output/germansignsnet1.6/classstats.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/output/germansignsnet1.6/saved_model.pb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/output/germansignsnet1.6/stats.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/output/germansignsnet1.6/top5.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/output/germansignsnet1.6/variables/variables.data-00000-of-00001" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/output/germansignsnet1.6/variables/variables.index" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/output/germansignsnet1.7/classification_report.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/output/germansignsnet1.7/classstats.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/output/germansignsnet1.7/saved_model.pb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/output/germansignsnet1.7/stats.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/output/germansignsnet1.7/top5.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/output/germansignsnet1.7/variables/variables.data-00000-of-00001" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/output/germansignsnet1.7/variables/variables.index" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/output/germansignsnet1.8/classification_report.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/output/germansignsnet1.8/classstats.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/output/germansignsnet1.8/saved_model.pb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/output/germansignsnet1.8/stats.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/output/germansignsnet1.8/top5.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/output/germansignsnet1.8/variables/variables.data-00000-of-00001" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/output/germansignsnet1.8/variables/variables.index" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/output/germansignsnet3.6" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/output/germansignsnet3.6eval/classification_report.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/output/germansignsnet3.6eval/classstats.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/output/germansignsnet3.6eval/stats.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/output/germansignsnet3.6eval/top5.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/output/germansignsnet3.7" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/output/germansignsnet3.7eval/classification_report.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/output/germansignsnet3.7eval/classstats.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/output/germansignsnet3.7eval/stats.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/output/germansignsnet3.7eval/top5.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/output/germansignsnet4.3/classification_report.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/output/germansignsnet4.3/classstats.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/output/germansignsnet4.3/stats.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/output/germansignsnet4.3/top5.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/output/germansignsnet4.3/variables/variables.data-00000-of-00001" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/output/germansignsnet4.3/variables/variables.index" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/output/rfcn_resnet101/inference_graph/frozen_inference_graph.pb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/yolo-coco/coco.names" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/yolo-coco/yolov3.cfg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/yolo-coco/yolov3.weights" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dicts/dict4.4/4144.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/fit/dicts/dict4.4/cm/events.out.tfevents.1589128506.AORUS-B450.4144.359.v2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/fit/dicts/dict4.4/train/events.out.tfevents.1589128506.AORUS-B450.4144.440.v2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/fit/dicts/dict4.4/train/events.out.tfevents.1589128506.AORUS-B450.profile-empty" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/fit/dicts/dict4.4/train/plugins/profile/2020-05-10_19-35-06/local.trace" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/fit/dicts/dict4.4/validation/events.out.tfevents.1589128552.AORUS-B450.4144.190705.v2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/output/germansignsnet4.4/classification_report.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/output/germansignsnet4.4/classstats.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/output/germansignsnet4.4/saved_model.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/output/germansignsnet4.4/stats.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/output/germansignsnet4.4/top5.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/output/germansignsnet4.4/variables/variables.data-00000-of-00001" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/output/germansignsnet4.4/variables/variables.index" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dicts/dict3acc.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dicts/dict3loss.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dicts/dict3total.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dicts/dict4acc.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dicts/dict4loss.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dicts/dict4total.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/0.png" beforeDir="false" afterPath="$PROJECT_DIR$/examples/0.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/1.png" beforeDir="false" afterPath="$PROJECT_DIR$/examples/1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/2.png" beforeDir="false" afterPath="$PROJECT_DIR$/examples/2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/3.png" beforeDir="false" afterPath="$PROJECT_DIR$/examples/3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/4.png" beforeDir="false" afterPath="$PROJECT_DIR$/examples/4.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/5.png" beforeDir="false" afterPath="$PROJECT_DIR$/examples/5.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/6.png" beforeDir="false" afterPath="$PROJECT_DIR$/examples/6.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/fit/dicts/dict3.6/train/events.out.tfevents.1588178947.AORUS-B450.20792.423.v2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/fit/dicts/dict3.6/train/events.out.tfevents.1588178948.AORUS-B450.profile-empty" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/fit/dicts/dict3.6/train/events.out.tfevents.1588179987.AORUS-B450.11836.423.v2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/fit/dicts/dict3.6/train/plugins/profile/2020-04-29_19-49-08/local.trace" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/fit/dicts/dict3.6/train/plugins/profile/2020-04-29_20-06-28/local.trace" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/fit/dicts/dict3.6/validation/events.out.tfevents.1588180039.AORUS-B450.11836.190664.v2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SigmoidNAN.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classicalShapeDetection.py" beforeDir="false" afterPath="$PROJECT_DIR$/classicalShapeDetection.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dicts/dict1.6/16496.json" beforeDir="false" afterPath="$PROJECT_DIR$/dicts/dict1.6/16496.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dicts/dict1.7/6868.json" beforeDir="false" afterPath="$PROJECT_DIR$/dicts/dict1.7/6868.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dicts/dict1.7/8564.json" beforeDir="false" afterPath="$PROJECT_DIR$/dicts/dict1.7/8564.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dicts/dict1.7/9444.json" beforeDir="false" afterPath="$PROJECT_DIR$/dicts/dict1.7/9444.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dicts/dict1.8/11440.json" beforeDir="false" afterPath="$PROJECT_DIR$/dicts/dict1.8/11440.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dicts/dict1.8/14360.json" beforeDir="false" afterPath="$PROJECT_DIR$/dicts/dict1.8/14360.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dicts/dict1.8/1604.json" beforeDir="false" afterPath="$PROJECT_DIR$/dicts/dict1.8/1604.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dicts/dict1.8/1692.json" beforeDir="false" afterPath="$PROJECT_DIR$/dicts/dict1.8/1692.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dicts/dict1.8/17480.json" beforeDir="false" afterPath="$PROJECT_DIR$/dicts/dict1.8/17480.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dicts/dict1.8/18288.json" beforeDir="false" afterPath="$PROJECT_DIR$/dicts/dict1.8/18288.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dicts/dict1.8/6648.json" beforeDir="false" afterPath="$PROJECT_DIR$/dicts/dict1.8/6648.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dicts/dict1.8/8988.json" beforeDir="false" afterPath="$PROJECT_DIR$/dicts/dict1.8/8988.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dicts/dict1.8/9128.json" beforeDir="false" afterPath="$PROJECT_DIR$/dicts/dict1.8/9128.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dicts/dict1.8/9464.json" beforeDir="false" afterPath="$PROJECT_DIR$/dicts/dict1.8/9464.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dicts/dict1.8/9608.json" beforeDir="false" afterPath="$PROJECT_DIR$/dicts/dict1.8/9608.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dicts/dict1acc.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dicts/dict1loss.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dicts/dict1total.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dicts/dict3.6/11836.json" beforeDir="false" afterPath="$PROJECT_DIR$/dicts/dict3.6/11836.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dicts/dict3.6/15412.json" beforeDir="false" afterPath="$PROJECT_DIR$/dicts/dict3.6/15412.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dicts/dict3.7/17876.json" beforeDir="false" afterPath="$PROJECT_DIR$/dicts/dict3.7/17876.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dicts/dict4.2/15032.json" beforeDir="false" afterPath="$PROJECT_DIR$/dicts/dict4.2/15032.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dicts/dict4.2/20384.json" beforeDir="false" afterPath="$PROJECT_DIR$/dicts/dict4.2/20384.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dicts/dict4.2/20888.json" beforeDir="false" afterPath="$PROJECT_DIR$/dicts/dict4.2/20888.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dicts/dict4.2/6844.json" beforeDir="false" afterPath="$PROJECT_DIR$/dicts/dict4.2/6844.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dicts/dict4.2/8028.json" beforeDir="false" afterPath="$PROJECT_DIR$/dicts/dict4.2/8028.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dicts/dict4.2/8268.json" beforeDir="false" afterPath="$PROJECT_DIR$/dicts/dict4.2/8268.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dicts/dict4.2/9060.json" beforeDir="false" afterPath="$PROJECT_DIR$/dicts/dict4.2/9060.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dicts/dict4.3/11332.json" beforeDir="false" afterPath="$PROJECT_DIR$/dicts/dict4.3/11332.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dicts/dict4.3/11604.json" beforeDir="false" afterPath="$PROJECT_DIR$/dicts/dict4.3/11604.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dicts/dict4.3/12852.json" beforeDir="false" afterPath="$PROJECT_DIR$/dicts/dict4.3/12852.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dicts/dict4.3/14952.json" beforeDir="false" afterPath="$PROJECT_DIR$/dicts/dict4.3/14952.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dicts/dict4.3/2360.json" beforeDir="false" afterPath="$PROJECT_DIR$/dicts/dict4.3/2360.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dicts/dict4.3/7852.json" beforeDir="false" afterPath="$PROJECT_DIR$/dicts/dict4.3/7852.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dicts/dict4.3/8204.json" beforeDir="false" afterPath="$PROJECT_DIR$/dicts/dict4.3/8204.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dicts/dict4.3/8820.json" beforeDir="false" afterPath="$PROJECT_DIR$/dicts/dict4.3/8820.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/germansignsnet3.6/classification_report.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/germansignsnet1.6/classification_report.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/germansignsnet3.6/saved_model.pb" beforeDir="false" afterPath="$PROJECT_DIR$/output/germansignsnet4.3/saved_model.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/germansignsnet3.6/stats.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/germansignsnet3.6/top5.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/germansignsnet3.6/variables/variables.data-00000-of-00001" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/germansignsnet3.6/variables/variables.index" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shapeDetection.py" beforeDir="false" afterPath="$PROJECT_DIR$/classicalShapeDetection.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/testing.py" beforeDir="false" afterPath="$PROJECT_DIR$/testing.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trafficSignCnn_v1.py" beforeDir="false" afterPath="$PROJECT_DIR$/trafficSignCnn_v1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trafficSignCnn_v3.py" beforeDir="false" afterPath="$PROJECT_DIR$/trafficSignCnn_v3.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trafficSignCnn_v4.py" beforeDir="false" afterPath="$PROJECT_DIR$/trafficSignCnn_v4.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/total.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train_grayscale.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/util.py" beforeDir="false" afterPath="$PROJECT_DIR$/util.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/violaJonesDetection.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/voting.py" beforeDir="false" afterPath="$PROJECT_DIR$/voting.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -283,7 +206,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/train.py" />
-      <option name="PARAMETERS" value="--dataset .\\data\\germanRoadsigns2 --model .\\output\\germansignsnet1.8 --plot output\\germansignsnet1.8\\plot.png -o .\\dicts\\dict1.8" />
+      <option name="PARAMETERS" value="--dataset .\\data\\germanRoadsigns2 --model .\\output\\germansignsnet4.4 --plot output\\germansignsnet4.4\\plot.png -o .\\dicts\\dict4.4" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -323,9 +246,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.main" />
-        <item itemvalue="Python.recognizeImages" />
         <item itemvalue="Python.testing" />
         <item itemvalue="Python.train" />
+        <item itemvalue="Python.recognizeImages" />
         <item itemvalue="Python.yoloShapeDetection" />
       </list>
     </recent_temporary>
@@ -351,6 +274,13 @@
       <workItem from="1588593426473" duration="13799000" />
       <workItem from="1588691661839" duration="13681000" />
       <workItem from="1588759759641" duration="4943000" />
+      <workItem from="1588845592992" duration="716000" />
+      <workItem from="1588846810974" duration="171000" />
+      <workItem from="1588866779814" duration="934000" />
+      <workItem from="1589116855334" duration="10034000" />
+      <workItem from="1589291570242" duration="2386000" />
+      <workItem from="1589477724790" duration="1024000" />
+      <workItem from="1589793029750" duration="4576000" />
     </task>
     <task id="LOCAL-00001" summary="model created&#10;-may need a graph">
       <created>1582921688120</created>
@@ -392,11 +322,11 @@
     <option name="LAST_COMMIT_MESSAGE" value="model created&#10;-may need a graph" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="415" y="121" width="1092" height="706" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588769616004">
+    <state x="415" y="121" width="1092" height="706" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589127304328">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="254" y="85" width="1092" height="706" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1600.860@0.0.1600.860" timestamp="1583060566016" />
-    <state x="415" y="121" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588769616004" />
+    <state x="415" y="121" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589127304328" />
     <state x="693" y="323" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1584041198923">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -405,6 +335,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="235" key="#com.intellij.ide.macro.MacrosDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1586386863215" />
+    <state x="640" y="256" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1588846753559">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="640" y="256" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588846753559" />
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1588593461619">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -426,26 +360,26 @@
     </state>
     <state x="580" y="193" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1582986495251" />
     <state x="696" y="233" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1585063621944" />
-    <state width="938" height="339" key="GridCell.Tab.0.bottom" timestamp="1588771515942">
+    <state width="936" height="275" key="GridCell.Tab.0.bottom" timestamp="1589801895621">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="760" height="222" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1583065043808" />
-    <state width="938" height="339" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1588771515942" />
-    <state width="938" height="339" key="GridCell.Tab.0.center" timestamp="1588771515942">
+    <state width="936" height="275" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1589801895621" />
+    <state width="936" height="275" key="GridCell.Tab.0.center" timestamp="1589801895621">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="760" height="222" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1583065043808" />
-    <state width="938" height="339" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1588771515942" />
-    <state width="938" height="339" key="GridCell.Tab.0.left" timestamp="1588771515942">
+    <state width="936" height="275" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1589801895621" />
+    <state width="936" height="275" key="GridCell.Tab.0.left" timestamp="1589801895620">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="760" height="222" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1583065043808" />
-    <state width="938" height="339" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1588771515942" />
-    <state width="938" height="339" key="GridCell.Tab.0.right" timestamp="1588771515942">
+    <state width="936" height="275" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1589801895620" />
+    <state width="936" height="275" key="GridCell.Tab.0.right" timestamp="1589801895621">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="760" height="222" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1583065043808" />
-    <state width="938" height="339" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1588771515942" />
+    <state width="936" height="275" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1589801895621" />
     <state width="938" height="339" key="GridCell.Tab.1.bottom" timestamp="1588771515942">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -498,33 +432,28 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/util.py</url>
-          <line>108</line>
+          <line>106</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/testing.py</url>
-          <line>12</line>
+          <line>11</line>
           <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/util.py</url>
-          <line>42</line>
+          <line>40</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/testing.py</url>
-          <line>10</line>
+          <line>9</line>
           <option name="timeStamp" value="15" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/testing.py</url>
-          <line>31</line>
+          <line>30</line>
           <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/train_grayscale.py</url>
-          <line>156</line>
-          <option name="timeStamp" value="24" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/trainingMonitor.py</url>
@@ -533,32 +462,32 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/util.py</url>
-          <line>220</line>
+          <line>218</line>
           <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/classicalShapeDetection.py</url>
-          <line>258</line>
+          <line>246</line>
           <option name="timeStamp" value="30" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/util.py</url>
-          <line>154</line>
+          <line>152</line>
           <option name="timeStamp" value="32" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/util.py</url>
-          <line>153</line>
+          <line>151</line>
           <option name="timeStamp" value="33" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/train.py</url>
-          <line>155</line>
+          <line>151</line>
           <option name="timeStamp" value="35" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/train.py</url>
-          <line>182</line>
+          <line>178</line>
           <option name="timeStamp" value="36" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -571,10 +500,10 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Roadster$shapeDetection.coverage" NAME="shapeDetection Coverage Results" MODIFIED="1588084400884" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Roadster$train.coverage" NAME="train Coverage Results" MODIFIED="1588759809796" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Roadster$recognizeImages.coverage" NAME="recognizeImages Coverage Results" MODIFIED="1588769617710" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Roadster$testing.coverage" NAME="testing Coverage Results" MODIFIED="1588764381774" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Roadster$main.coverage" NAME="main Coverage Results" MODIFIED="1588771166367" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Roadster$train.coverage" NAME="train Coverage Results" MODIFIED="1589127494870" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Roadster$testing.coverage" NAME="testing Coverage Results" MODIFIED="1589130329970" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Roadster$main.coverage" NAME="main Coverage Results" MODIFIED="1589801895609" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Roadster$util.coverage" NAME="util Coverage Results" MODIFIED="1588087101636" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
