@@ -19,8 +19,9 @@
    - 4.3 Reconciliation
 - 5 Conclusion
 
-
-- For a correct display of this markdown's contents, please use Roadster.pdf.
+```
+For a correct display of this markdown's contents, please use Roadster.pdf.
+```
 
 
 
@@ -273,42 +274,42 @@ The algorithm is described below, in Python.
 18
 19 return winner
 
-```
+
 Listing 1: Models Voting
-```
+
 ## 4 Results
 
 ### 4.1 Detection
 
-```
+
 Detection was done as explained in 3 Proposed Solution. It works well most
 of the time, but it can become faulty, as it depends on illumination and the
 whole scene. There are cases when the algorithm doesn�t detect any sign due
 to it being oddly illuminated. In other cases, the algorithm prefers to yield a
 different object to the detriment of a sign, due to it begin closer and having the
 right colors.
-```
-```
+
+
 Figure 3 presents visually the way an image is processed, including contrast-
 ing, masking, canny-edge detection and small parts removal.
-```
 
-```
+
+
 Figure 3: Preprocessing Pipeline and small part removal
-```
+
 Next, Figure 4 shows the detected contour and the cropped sign image,
 which will be fed to the models.
 
-```
+
 Figure 4: Contour detection and cropping
-```
+
 Figure 5, on the other hand, displays an erroneous course the pipeline may
 take, due to illumination.
 
 
-```
+
 Figure 5: Erroneous detection
-```
+
 This erroneous findings, however, will be filtered in most cases by the clas-
 sifiers, obtaining low likeliness and not being voted.
 
@@ -324,16 +325,16 @@ the last softmax layer was replaced by a sigmoid layer. Loss was calculated
 using binary cross-entropy. Graphs presenting loss and accuracy evolution are
 rendered below.
 
-```
-Figure 6: 1.8 Accuracy on epochs
-```
 
-```
+Figure 6: 1.8 Accuracy on epochs
+
+
+
 Figure 7: 1.8 Loss on epochs
-```
-```
+
+
 Next, barcharts regarding evaluation data are presented.
-```
+
 Figure 8: 1.8 Evaluation total statistics (0 - recognized first choice; 1 - second
 choice; 2 - third choice; 3 - others [unrecognized])
 
@@ -345,12 +346,12 @@ Germansignsnet3.7 hasn�s changed much as well, the most important and
 useful modification being the change of softmax to sigmoid and categorical cross-
 entropy to binary cross-entropy.
 
-```
+
 Figure 10: 3.7 Accuracy on epochs
-```
-```
+
+
 Figure 11: 3.7 Loss on epochs
-```
+
 
 Figure 12: 3.7 Evaluation total statistics (0 - recognized first choice; 1 - second
 choice; 2 - third choice; 3 - others [unrecognized])
@@ -367,12 +368,12 @@ filter used in the original as the second convolutional layer, this model used 6
 filters, and seems to work better.
 
 
-```
+
 Figure 14: 4.4 Accuracy on epochs
-```
-```
+
+
 Figure 15: 4.4 Loss on epochs
-```
+
 Figure 16: 4.4 Evaluation total statistics (0 - recognized first choice; 1 - second
 choice; 2 - third choice; 3 - others [unrecognized])
 
@@ -422,49 +423,49 @@ those images, with outstanding speed.
 
 ## References
 
-```
+
 [1] German traffic sign recognition. https://github.com/hparik11/
 German-Traffic-Sign-Recognition. Accessed: 2020-05-10.
-```
-```
+
+
 [2] The german traffic sign recognition benchmark.http://benchmark.ini.
 rub.de/?section=gtsrb&subsection=news. Accessed: 2020-29-03.
-```
-```
+
+
 [3] Traffic sign classification with keras and deep learn-
 ing. https://www.pyimagesearch.com/2019/11/04/
 traffic-sign-classification-with-keras-and-deep-learning.
 Accessed: 2020-20-03.
-```
-```
+
+
 [4] Traffic-sign-detection. https://github.com/ghostbbbmt/
 Traffic-Sign-Detection. Accessed: 2020-04-05.
-```
-```
+
+
 [5] Traffic sign detection using convolutional neu-
 ral network. https://towardsdatascience.com/
 traffic-sign-detection-using-convolutional-neural-network-660fb32fe90e.
 Accessed: 2020-05-10.
-```
-```
+
+
 [6] Karla Brki �c and Axel Pinz. Traffic sign detection as a component of an
 automated traffic infrastructure inventory system. 03 2020.
-```
-```
+
+
 [7] Arturo de la Escalera, Luis Moreno, Miguel Salichs, and J.M. Armingol.
 Road traffic sign detection and classification.Industrial Electronics, IEEE
 Transactions on, 6:848 � 859, 12 1997.
-```
-```
+
+
 [8] st �ephane Estable, J. Schick, Fridtjof Stein, R. Janssen, R. Ott, W. Ritter,
 and Y.-J Zheng. A real-time traffic sign recognition system. pages 213 �
 218, 11 1994.
-```
-```
+
+
 [9] Miguel Garrido, Miguel-Angel Sotelo, and E. Martm-Gorostiza. Fast traffic
 sign detection and recognition under changing lighting conditions. pages
 811 � 816, 10 2006.
-```
+
 
 [10] Fredrik Larsson and Michael Felsberg. Using fourier descriptors and spatial
 models for traffic sign recognition. pages 238�249, 05 2011.
