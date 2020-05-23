@@ -28,6 +28,7 @@ matplotlib.use("Agg")
 
 EVALSIZE = 20
 
+# data split and training done according to Adrian Rosebrock's model, found at https://www.pyimagesearch.com/2019/11/04/traffic-sign-classification-with-keras-and-deep-learning/
 
 def writeTopToCSV(name, list):
     with open(name, mode='w') as top_file:
