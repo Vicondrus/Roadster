@@ -233,7 +233,7 @@ def extract_random_objects(image, min_size_components):
     binary_image = removeSmallComponents(binary_image, min_size_components)
     contours = findContour(binary_image)
 
-    os.chdir('D:/Users/Victor/Documents/GitHub/Roadster/data/randomObjects')
+    os.chdir('/data/randomObjects')
 
     if contours is not None:
         for c in contours:

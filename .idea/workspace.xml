@@ -1,7 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9cde44e4-cd23-4f31-9ef1-d32027d02f60" name="Default Changelist" comment="model created&#10;-may need a graph" />
+    <list default="true" id="9cde44e4-cd23-4f31-9ef1-d32027d02f60" name="Default Changelist" comment="model created&#10;-may need a graph">
+      <change afterPath="$PROJECT_DIR$/distribution_density_autoenc.6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nets/trafficSignAutoencoder2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nets/trafficSignVariationalAutoencoder.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/output/germansignsnetVARautoenc1.1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/output/germansignsnetVARautoenc1.1.hdf5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/output/germansignsnetVARautoenc1.2.hdf5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/output/germansignsnetautoenc.5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/output/germansignsnetautoenc.6" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/output/germansignsnetautoenc.7" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/output/germansignsnetautoenc2.1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/output/germansignsnetautoenc2.2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/output/germansignsnetautoenc2.3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nets/trafficSignAutoencoder.py" beforeDir="false" afterPath="$PROJECT_DIR$/nets/trafficSignAutoencoder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/germansignsnetautoenc.1/saved_model.pb" beforeDir="false" afterPath="$PROJECT_DIR$/output/germansignsnetautoenc.1/saved_model.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/germansignsnetautoenc.1/variables/variables.data-00000-of-00001" beforeDir="false" afterPath="$PROJECT_DIR$/output/germansignsnetautoenc.1/variables/variables.data-00000-of-00001" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/germansignsnetautoenc.1/variables/variables.index" beforeDir="false" afterPath="$PROJECT_DIR$/output/germansignsnetautoenc.1/variables/variables.index" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/germansignsnetautoenc.3" beforeDir="false" afterPath="$PROJECT_DIR$/output/germansignsnetautoenc.3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shapedetection/classicalShapeDetection.py" beforeDir="false" afterPath="$PROJECT_DIR$/shapedetection/classicalShapeDetection.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/autoencoderAnomalyDetection.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/autoencoderAnomalyDetection.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/recognizeImages.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/recognizeImages.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/testing.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/testing.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train/autoencoderTraining.py" beforeDir="false" afterPath="$PROJECT_DIR$/train/autoencoderTraining.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/train/train.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,6 +44,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="JupyterTrust" id="1846c5b6-0054-44d6-b57f-ce4c134d1be6" />
   <component name="ProjectId" id="1YLFfbLRoC5ikEUAf4lGTl1dVap" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -27,22 +55,32 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/recognizeImages.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Users\Victor\Documents\GitHub\Roadster" />
-      <recent name="D:\Users\Victor\Documents\GitHub\Roadster\video" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Users\Vicon\PycharmProjects\RoadSigns" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Users\Victor\Documents\GitHub\Roadster\test" />
+      <recent name="D:\Users\Victor\Documents\GitHub\Roadster\shapedetection" />
+      <recent name="D:\Users\Victor\Documents\GitHub\Roadster\train" />
+      <recent name="D:\Users\Victor\Documents\GitHub\Roadster\util" />
+      <recent name="D:\Users\Victor\Documents\GitHub\Roadster\nets" />
+    </key>
   </component>
-  <component name="RunManager" selected="Python.main">
+  <component name="RunManager" selected="Python.autoencoderTraining">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="RoadSigns" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -59,6 +97,70 @@
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/recognizeImages.py" />
       <option name="PARAMETERS" value="--model .\\output\\germansignsnet --images .\\GermanSigns\\Test --examples .\\examples" />
       <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="autoencoderAnomalyDetection" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="RoadSigns" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <EXTENSION ID="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" />
+        </ENTRIES>
+      </EXTENSION>
+      <option name="SCRIPT_NAME" value="D:\Users\Victor\Documents\GitHub\Roadster\test\autoencoderAnomalyDetection.py" />
+      <option name="PARAMETERS" value="--model .\\output\\germansignsnet --images .\\GermanSigns\\Test --examples .\\examples" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="autoencoderTraining" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="RoadSigns" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <EXTENSION ID="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" />
+        </ENTRIES>
+      </EXTENSION>
+      <option name="SCRIPT_NAME" value="D:\Users\Victor\Documents\GitHub\Roadster\train\autoencoderTraining.py" />
+      <option name="PARAMETERS" value="--data D:\Users\Victor\Documents\GitHub\Roadster\data\germanRoadsigns2" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
       <option name="REDIRECT_INPUT" value="false" />
@@ -87,28 +189,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="recognizeImages" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="RoadSigns" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/recognizeImages.py" />
-      <option name="PARAMETERS" value="--model .\\output\\germansignsnet3.7 --images .\\self --examples .\\examples" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="testing" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="RoadSigns" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -122,7 +202,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/testing.py" />
+      <option name="SCRIPT_NAME" value="D:\Users\Victor\Documents\GitHub\Roadster\test\testing.py" />
       <option name="PARAMETERS" value="--model .\\output\\germansignsnet4.3 --images .\\data\\-1 --examples .\\examples" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -144,7 +224,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/train.py" />
+      <option name="SCRIPT_NAME" value="D:\Users\Victor\Documents\GitHub\Roadster\train\train.py" />
       <option name="PARAMETERS" value="--dataset .\\data\\germanRoadsigns2 --model .\\output\\germansignsnet4.4 --plot output\\germansignsnet4.4\\plot.png -o .\\dicts\\dict4.4" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -153,45 +233,24 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="yoloShapeDetection" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="RoadSigns" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/yoloShapeDetection.py" />
-      <option name="PARAMETERS" value="--image self/2.png --yolo yolo-coco" />
-      <option name="SHOW_COMMAND_LINE" value="true" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <list>
-      <item itemvalue="Python.train" />
+      <item itemvalue="Python.autoencoderAnomalyDetection" />
+      <item itemvalue="Python.autoencoderTraining" />
       <item itemvalue="Python.main" />
       <item itemvalue="Python.testing" />
-      <item itemvalue="Python.yoloShapeDetection" />
-      <item itemvalue="Python.recognizeImages" />
+      <item itemvalue="Python.train" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.main" />
-        <item itemvalue="Python.testing" />
+        <item itemvalue="Python.autoencoderTraining" />
+        <item itemvalue="Python.autoencoderAnomalyDetection" />
         <item itemvalue="Python.train" />
-        <item itemvalue="Python.recognizeImages" />
-        <item itemvalue="Python.yoloShapeDetection" />
+        <item itemvalue="Python.testing" />
+        <item itemvalue="Python.main" />
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -219,7 +278,29 @@
       <workItem from="1589116855334" duration="10034000" />
       <workItem from="1589291570242" duration="2386000" />
       <workItem from="1589477724790" duration="1024000" />
-      <workItem from="1589793029750" duration="4886000" />
+      <workItem from="1589793029750" duration="5173000" />
+      <workItem from="1590070108057" duration="1434000" />
+      <workItem from="1590225019527" duration="73000" />
+      <workItem from="1590320201153" duration="1933000" />
+      <workItem from="1590933585606" duration="646000" />
+      <workItem from="1593680301399" duration="16000" />
+      <workItem from="1599660158317" duration="210000" />
+      <workItem from="1602070295259" duration="19482000" />
+      <workItem from="1602145932894" duration="8886000" />
+      <workItem from="1602256424490" duration="2034000" />
+      <workItem from="1602262791375" duration="878000" />
+      <workItem from="1602355317898" duration="17000" />
+      <workItem from="1602414977996" duration="19407000" />
+      <workItem from="1602503671041" duration="49000" />
+      <workItem from="1602516644752" duration="354000" />
+      <workItem from="1602527233135" duration="646000" />
+      <workItem from="1602611190332" duration="1062000" />
+      <workItem from="1602612291367" duration="4020000" />
+      <workItem from="1602618295444" duration="3839000" />
+      <workItem from="1602650961594" duration="13877000" />
+      <workItem from="1602683566917" duration="257000" />
+      <workItem from="1602759482096" duration="13960000" />
+      <workItem from="1602791015715" duration="1972000" />
     </task>
     <task id="LOCAL-00001" summary="model created&#10;-may need a graph">
       <created>1582921688120</created>
@@ -253,7 +334,7 @@
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
@@ -261,188 +342,191 @@
     <option name="LAST_COMMIT_MESSAGE" value="model created&#10;-may need a graph" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="415" y="121" width="1092" height="706" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589127304328">
+    <state x="0" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602418084100">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="254" y="85" width="1092" height="706" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1600.860@0.0.1600.860" timestamp="1583060566016" />
-    <state x="415" y="121" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589127304328" />
-    <state x="693" y="323" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1584041198923">
+    <state x="0" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1602418084100" />
+    <state x="661" y="310" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1602415004358">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="693" y="323" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1584041198923" />
-    <state x="740" y="235" key="#com.intellij.ide.macro.MacrosDialog" timestamp="1586386863215">
+    <state x="661" y="310" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1602415004358" />
+    <state x="583" y="10" key="CommitChangelistDialog2" timestamp="1602444044201">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="235" key="#com.intellij.ide.macro.MacrosDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1586386863215" />
-    <state x="640" y="256" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1588846753559">
+    <state x="583" y="10" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1602444044201" />
+    <state x="740" y="256" key="FileChooserDialogImpl" timestamp="1602622529257">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="640" y="256" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588846753559" />
-    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1588593461619">
+    <state x="740" y="256" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1602622529257" />
+    <state width="1877" height="267" key="GridCell.Tab.0.bottom" timestamp="1602792391526">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588593461619" />
-    <state x="679" y="146" key="#testing" timestamp="1585821325247">
+    <state width="914" height="273" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1280.680@0.0.1920.1040" timestamp="1602147523353" />
+    <state width="1877" height="267" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1602792391526" />
+    <state width="1877" height="267" key="GridCell.Tab.0.center" timestamp="1602792391526">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="679" y="146" key="#testing/0.0.1920.1040@0.0.1920.1040" timestamp="1585821325247" />
-    <state x="77" y="183" key="#xdebugger.XInspectDialog" timestamp="1582986640273">
-      <screen x="0" y="0" width="1600" height="860" />
-    </state>
-    <state x="77" y="183" key="#xdebugger.XInspectDialog/0.0.1600.860@0.0.1600.860" timestamp="1582986640273" />
-    <state x="614" y="116" key="CommitChangelistDialog2" timestamp="1585224523588">
+    <state width="914" height="273" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1280.680@0.0.1920.1040" timestamp="1602147523353" />
+    <state width="1877" height="267" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1602792391526" />
+    <state width="1877" height="267" key="GridCell.Tab.0.left" timestamp="1602792391526">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="614" y="116" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1585224523588" />
-    <state x="696" y="233" key="FileChooserDialogImpl" timestamp="1585063621944">
+    <state width="914" height="273" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1280.680@0.0.1920.1040" timestamp="1602147523353" />
+    <state width="1877" height="267" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1602792391526" />
+    <state width="1877" height="267" key="GridCell.Tab.0.right" timestamp="1602792391526">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="580" y="193" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1582986495251" />
-    <state x="696" y="233" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1585063621944" />
-    <state width="936" height="275" key="GridCell.Tab.0.bottom" timestamp="1589801895621">
+    <state width="914" height="273" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1280.680@0.0.1920.1040" timestamp="1602147523353" />
+    <state width="1877" height="267" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1602792391526" />
+    <state width="1877" height="338" key="GridCell.Tab.1.bottom" timestamp="1602785361358">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="760" height="222" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1583065043808" />
-    <state width="936" height="275" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1589801895621" />
-    <state width="936" height="275" key="GridCell.Tab.0.center" timestamp="1589801895621">
+    <state width="1877" height="338" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1602785361358" />
+    <state width="1877" height="338" key="GridCell.Tab.1.center" timestamp="1602785361358">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="760" height="222" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1583065043808" />
-    <state width="936" height="275" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1589801895621" />
-    <state width="936" height="275" key="GridCell.Tab.0.left" timestamp="1589801895620">
+    <state width="1877" height="338" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1602785361358" />
+    <state width="1877" height="338" key="GridCell.Tab.1.left" timestamp="1602785361358">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="760" height="222" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1583065043808" />
-    <state width="936" height="275" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1589801895620" />
-    <state width="936" height="275" key="GridCell.Tab.0.right" timestamp="1589801895621">
+    <state width="1877" height="338" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1602785361358" />
+    <state width="1877" height="338" key="GridCell.Tab.1.right" timestamp="1602785361358">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="760" height="222" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1583065043808" />
-    <state width="936" height="275" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1589801895621" />
-    <state width="938" height="339" key="GridCell.Tab.1.bottom" timestamp="1588771515942">
+    <state width="1877" height="338" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1602785361358" />
+    <state x="0" y="168" key="SettingsEditor" timestamp="1602444424217">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1579" height="276" key="GridCell.Tab.1.bottom/0.0.1600.860@0.0.1600.860" timestamp="1582987859065" />
-    <state width="938" height="339" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1588771515942" />
-    <state width="938" height="339" key="GridCell.Tab.1.center" timestamp="1588771515942">
+    <state x="0" y="168" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1602444424217" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1602092964464">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1579" height="276" key="GridCell.Tab.1.center/0.0.1600.860@0.0.1600.860" timestamp="1582987859064" />
-    <state width="938" height="339" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1588771515942" />
-    <state width="938" height="339" key="GridCell.Tab.1.left" timestamp="1588771515942">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1579" height="276" key="GridCell.Tab.1.left/0.0.1600.860@0.0.1600.860" timestamp="1582987859064" />
-    <state width="938" height="339" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1588771515942" />
-    <state width="938" height="339" key="GridCell.Tab.1.right" timestamp="1588771515942">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1579" height="276" key="GridCell.Tab.1.right/0.0.1600.860@0.0.1600.860" timestamp="1582987859064" />
-    <state width="938" height="339" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1588771515942" />
-    <state x="407" y="108" key="SettingsEditor" timestamp="1588693704137">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="339" y="89" key="SettingsEditor/0.0.1600.860@0.0.1600.860" timestamp="1582922735429" />
-    <state x="407" y="108" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1588693704137" />
-    <state width="968" height="528" key="XDebugger.FullValuePopup" timestamp="1588163995617">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="968" height="528" key="XDebugger.FullValuePopup/0.0.1920.1040@0.0.1920.1040" timestamp="1588163995617" />
-    <state x="832" y="364" key="cloudConfig.SelfSettingsDialog" timestamp="1588179406448">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="832" y="364" key="cloudConfig.SelfSettingsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588179406448" />
-    <state x="641" y="328" key="com.intellij.ide.util.TipDialog" timestamp="1587048180052">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="534" y="271" key="com.intellij.ide.util.TipDialog/0.0.1600.860@0.0.1600.860" timestamp="1583060375775" />
-    <state x="641" y="328" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1587048180052" />
-    <state x="249" y="213" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1585909239065">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="249" y="213" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1585909239065" />
-    <state x="770" y="254" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1582922470330">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="770" y="254" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582922470330" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1602092964464" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/util.py</url>
+          <url>file://$PROJECT_DIR$/util/util.py</url>
           <line>106</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/testing.py</url>
+          <url>file://$PROJECT_DIR$/test/testing.py</url>
           <line>11</line>
           <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/util.py</url>
+          <url>file://$PROJECT_DIR$/util/util.py</url>
           <line>40</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/testing.py</url>
+          <url>file://$PROJECT_DIR$/test/testing.py</url>
           <line>9</line>
           <option name="timeStamp" value="15" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/testing.py</url>
+          <url>file://$PROJECT_DIR$/test/testing.py</url>
           <line>30</line>
           <option name="timeStamp" value="22" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/trainingMonitor.py</url>
+          <url>file://$PROJECT_DIR$/util/trainingMonitor.py</url>
           <line>66</line>
           <option name="timeStamp" value="25" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/util.py</url>
-          <line>218</line>
+          <url>file://$PROJECT_DIR$/util/util.py</url>
+          <line>223</line>
           <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/classicalShapeDetection.py</url>
+          <url>file://$PROJECT_DIR$/shapedetection/classicalShapeDetection.py</url>
           <line>246</line>
           <option name="timeStamp" value="30" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/util.py</url>
+          <url>file://$PROJECT_DIR$/util/util.py</url>
           <line>152</line>
           <option name="timeStamp" value="32" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/util.py</url>
+          <url>file://$PROJECT_DIR$/util/util.py</url>
           <line>151</line>
           <option name="timeStamp" value="33" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/train.py</url>
+          <url>file://$PROJECT_DIR$/train/train.py</url>
           <line>151</line>
           <option name="timeStamp" value="35" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/train.py</url>
+          <url>file://$PROJECT_DIR$/train/train.py</url>
           <line>178</line>
           <option name="timeStamp" value="36" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/voting.py</url>
+          <url>file://$PROJECT_DIR$/util/voting.py</url>
           <line>13</line>
           <option name="timeStamp" value="37" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/train/autoencoderTraining.py</url>
+          <line>16</line>
+          <option name="timeStamp" value="38" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/nets/trafficSignAutoencoder.py</url>
+          <line>51</line>
+          <option name="timeStamp" value="40" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/nets/trafficSignAutoencoder.py</url>
+          <line>22</line>
+          <option name="timeStamp" value="41" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/nets/trafficSignAutoencoder2.py</url>
+          <line>49</line>
+          <option name="timeStamp" value="45" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/test/autoencoderAnomalyDetection.py</url>
+          <line>112</line>
+          <option name="timeStamp" value="47" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/test/autoencoderAnomalyDetection.py</url>
+          <line>116</line>
+          <option name="timeStamp" value="48" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/train/autoencoderTraining.py</url>
+          <line>33</line>
+          <option name="timeStamp" value="49" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/nets/trafficSignVariationalAutoencoder.py</url>
+          <line>20</line>
+          <option name="timeStamp" value="56" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/test/autoencoderAnomalyDetection.py</url>
+          <line>84</line>
+          <option name="timeStamp" value="57" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Roadster$shapeDetection.coverage" NAME="shapeDetection Coverage Results" MODIFIED="1588084400884" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Roadster$recognizeImages.coverage" NAME="recognizeImages Coverage Results" MODIFIED="1588769617710" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Roadster$train.coverage" NAME="train Coverage Results" MODIFIED="1589127494870" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Roadster$testing.coverage" NAME="testing Coverage Results" MODIFIED="1589130329970" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Roadster$main.coverage" NAME="main Coverage Results" MODIFIED="1589801895609" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Roadster$main.coverage" NAME="main Coverage Results" MODIFIED="1602072633181" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Roadster$autoencoderAnomalyDetection.coverage" NAME="autoencoderAnomalyDetection Coverage Results" MODIFIED="1602791724776" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Roadster$train.coverage" NAME="train Coverage Results" MODIFIED="1589127494870" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Roadster$recognizeImages.coverage" NAME="recognizeImages Coverage Results" MODIFIED="1588769617710" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Roadster$util.coverage" NAME="util Coverage Results" MODIFIED="1588087101636" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Roadster$autoencoderTraining.coverage" NAME="autoencoderTraining Coverage Results" MODIFIED="1602792391512" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

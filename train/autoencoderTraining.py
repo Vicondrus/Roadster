@@ -1,16 +1,9 @@
-import argparse
-import os
+from collections import Counter
 
 import keras
-import numpy as np
 import matplotlib.pyplot as plt
-import cv2
+import numpy as np
 from keras_preprocessing.image import ImageDataGenerator
-from tensorflow.keras.optimizers import Adam
-from tensorflow_core.python.keras.datasets import mnist
-
-from trafficSignAutoencoder import TrafficSignNet_Autoencoder
-from util import load_data_and_labels
 
 # ap = argparse.ArgumentParser()
 # ap.add_argument("-d", "--dataset", required=True, help="path to input training model")
@@ -27,33 +20,37 @@ from util import load_data_and_labels
 # # testX = np.expand_dims(testX, axis=-1)
 # trainX = trainX.astype("float32") / 255.0
 # testX = testX.astype("float32") / 255.0
+from nets.trafficSignAutoencoder2 import TrafficSignNet_Autoencoder_v2
 
-enc, dec, autoenc = TrafficSignNet_Autoencoder.build(width=32, height=32, depth=3)
+img_size = 32
+
+_, _, autoenc = TrafficSignNet_Autoencoder_v2.build(
+    width=img_size, height=img_size, depth=3)
 # opt = Adam(lr=1e-3)
 autoenc.compile(optimizer='adadelta', loss='mean_squared_error')
 
 EPOCHS = 15
-BS = 32
+BS = 32  # 64  # and 128
 
 train_datagen = ImageDataGenerator(rescale=1. / 255, data_format='channels_last')
 train_generator = train_datagen.flow_from_directory(
     'data/germanRoadsigns2/Train',
-    target_size=(32, 32),
+    target_size=(img_size, img_size),
     batch_size=BS,
     class_mode='input'
 )
 
 test_datagen = ImageDataGenerator(rescale=1. / 255, data_format='channels_last')
 validation_generator = test_datagen.flow_from_directory(
-    'data/germanRoadsigns2/Eval',
-    target_size=(32, 32),
+    'data/germanRoadsigns2/TestFolder',
+    target_size=(img_size, img_size),
     batch_size=BS,
     class_mode='input'
 )
 
 anomaly_generator = test_datagen.flow_from_directory(
     'data/-1',
-    target_size=(32, 32),
+    target_size=(img_size, img_size),
     batch_size=BS,
     class_mode='input'
 )
@@ -61,21 +58,24 @@ anomaly_generator = test_datagen.flow_from_directory(
 es = keras.callbacks.EarlyStopping(monitor='val_loss', mode='min', verbose=1,
                                    patience=5)  # Early stopping (stops training when
 # validation doesn't improve for {patience} epochs)
-model_filepath = './output/germansignsnetautoenc.4'
-save_best = keras.callbacks.ModelCheckpoint(model_filepath, monitor='val_loss',
-                                            save_best_only=True, mode='min')
+model_filepath = './output/germansignsnetautoenc2.3'
+save_best = keras.callbacks.ModelCheckpoint(model_filepath,
+                                            save_best_only=True)
+
+counter = Counter(train_generator.classes)
+max_val = float(max(counter.values()))
+class_weights = {class_id: max_val / num_images for class_id, num_images in
+                 counter.items()}
 
 H = autoenc.fit(
     train_generator,
-    steps_per_epoch=1000,
     epochs=EPOCHS,
     validation_data=validation_generator,
-    validation_steps=1000,
     shuffle=True, callbacks=[save_best, es])
 
-model = keras.models.load_model(model_filepath)
+autoenc = keras.models.load_model(model_filepath)
 
-N = np.arange(0, es.stopped_epoch)
+N = np.arange(0, es.stopped_epoch + 1 if es.stopped_epoch > 0 else EPOCHS)
 plt.style.use("ggplot")
 plt.figure()
 plt.plot(N, H.history["loss"], label="train_loss")
@@ -94,7 +94,7 @@ while batch_index <= train_generator.batch_index:
     data_list.append(data[0])
     batch_index = batch_index + 1
 
-predicted = model.predict(data_list[0])
+predicted = autoenc.predict(data_list[0])
 no_of_samples = 4
 _, axs = plt.subplots(no_of_samples, 2, figsize=(5, 8))
 axs = axs.flatten()
@@ -107,5 +107,5 @@ for img, ax in zip(imgs, axs):
 plt.show()
 
 print(
-    f"Error on validation set:{model.evaluate_generator(validation_generator)}, "
-    f"error on anomaly set:{model.evaluate_generator(anomaly_generator)}")
+    f"Error on validation set:{autoenc.evaluate_generator(validation_generator)}, "
+    f"error on anomaly set:{autoenc.evaluate_generator(anomaly_generator)}")

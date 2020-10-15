@@ -1,17 +1,11 @@
-import os
-
-import cv2
 import keras
 import matplotlib.pyplot as plt
+import numpy as np
 from keras_preprocessing.image import ImageDataGenerator
-
-from trafficSignAutoencoder import TrafficSignNet_Autoencoder
-
 from sklearn.neighbors import KernelDensity
 
-import numpy as np
-
-model = keras.models.load_model("./output/germansignsnetautoenc.3")
+# model = keras.models.load_model("./output"
+#                                 "/germansignsnetautoenc2.1")
 
 basePath = 'D:\\Users\\Victor\\Documents\\GitHub\\Roadster\\data\\germanRoadsigns3'
 
@@ -32,29 +26,39 @@ basePath = 'D:\\Users\\Victor\\Documents\\GitHub\\Roadster\\data\\germanRoadsign
 #     ax.imshow(img)
 # plt.show()
 
+img_size = 32
+
+model_filepath = './output/germansignsnetautoenc2.1'
+
+############ TODO try using meta images as target values (y) for fitting an autoencoder
+
+model = keras.models.load_model(model_filepath)
+
 batch_size = 85
 train_datagen = ImageDataGenerator(rescale=1. / 255, data_format='channels_last')
 train_generator = train_datagen.flow_from_directory(
     'data/germanRoadsigns2/Train',
-    target_size=(32, 32),
+    target_size=(img_size, img_size),
     batch_size=batch_size,
     class_mode='input'
 )
 
 test_datagen = ImageDataGenerator(rescale=1. / 255, data_format='channels_last')
 validation_generator = test_datagen.flow_from_directory(
-    'data/germanRoadsigns2/Eval',
-    target_size=(32, 32),
+    'data/germanRoadsigns2/TestFolder',
+    target_size=(img_size, img_size),
     batch_size=batch_size,
     class_mode='input'
 )
 
 anomaly_generator = test_datagen.flow_from_directory(
     'data/-1',
-    target_size=(32, 32),
+    target_size=(img_size, img_size),
     batch_size=batch_size,
     class_mode='input'
 )
+
+encoder = model.get_layer(name="encoder")
 
 data_list = []
 batch_index = 0
@@ -64,13 +68,21 @@ while batch_index <= train_generator.batch_index:
     batch_index = batch_index + 1
 
 predicted = model.predict(data_list[0])
+encoded = encoder.predict(data_list[0])
 no_of_samples = 4
-_, axs = plt.subplots(no_of_samples, 2, figsize=(5, 8))
+if len(encoded[0].shape) == 2:
+    _, axs = plt.subplots(no_of_samples, 3, figsize=(5, 8))
+else:
+    _, axs = plt.subplots(no_of_samples, 2, figsize=(5, 8))
 axs = axs.flatten()
 imgs = []
 for i in range(no_of_samples):
     imgs.append(data_list[i][i])
     imgs.append(predicted[i])
+    if len(encoded[i].shape) == 2:
+        imgs.append(encoded[i])
+    else:
+        print(encoded[i])
 for img, ax in zip(imgs, axs):
     ax.imshow(img)
 plt.show()
@@ -81,15 +93,23 @@ print(
 
 print(model.summary())
 
-encoder = model.get_layer(name="encoder")
-
 print(encoder.summary())
 
 encoded_images = encoder.predict_generator(train_generator)
-
 validation_encoded = encoder.predict_generator(validation_generator)
-
 anom_encoded = encoder.predict_generator(anomaly_generator)
+exception = False
+try:
+    encoded_images_flat = [np.reshape(img, 12) for img in encoded_images]
+    validation_encoded_flat = [np.reshape(img, 12) for img in validation_encoded]
+    anom_encoded_flat = [np.reshape(img, 12) for img in anom_encoded]
+except:
+    exception = True
+
+if not exception:
+    encoded_images = encoded_images_flat
+    validation_encoded = validation_encoded_flat
+    anom_encoded = anom_encoded_flat
 
 kde = KernelDensity(kernel='gaussian', bandwidth=0.2).fit(encoded_images)
 training_density_scores = kde.score_samples(encoded_images)
@@ -100,9 +120,8 @@ plt.figure(figsize=(10, 7))
 plt.title('Distribution of Density Scores')
 # plt.hist(training_density_scores, 20, alpha=0.5, label='Training Normal',
 #          range=(-50, 5))
-plt.hist(validation_density_scores, 20, alpha=0.5, label='Validation Normal',
-         range=(-50, 5))
-plt.hist(anomaly_density_scores, 20, alpha=0.5, label='Anomalies', range=(-50, 5))
+plt.hist(validation_density_scores, 20, alpha=0.5, label='Validation Normal')
+plt.hist(anomaly_density_scores, 20, alpha=0.5, label='Anomalies')
 plt.legend(loc='upper right')
 plt.xlabel('Density Score')
 

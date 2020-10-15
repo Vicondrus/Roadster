@@ -1,8 +1,8 @@
 import cv2
 from tensorflow.keras.models import load_model
 
-import classicalShapeDetection
-import voting
+from shapedetection import classicalShapeDetection
+from util import voting
 
 
 def main():
@@ -26,7 +26,6 @@ def main():
             break
         coordinate, image, sign = classicalShapeDetection.localization(frame, 300, 0.65)
         if sign is not None:
-            # yoloShapeDetection.recognizeObjects(image, confidence_thresh=0.4)
             j = voting.vote_on_image(models, sign)
             if j is not None:
                 label = labelNames[j]

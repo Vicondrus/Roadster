@@ -21,16 +21,16 @@ def plotStats():
 
 
 def evalModel():
-    model = tf.keras.models.load_model(".\\output\\germansignsnet4.4")
+    model = tf.keras.models.load_model("../output/germansignsnet4.4")
 
     evalX, evalY = util.load_data_and_labels(".\\data\\germanRoadsigns2", ".\\data\\germanRoadsigns2\\Eval.csv")
 
-    labelNames = open("signnames.csv").read().strip().split("\n")[1:]
+    labelNames = open("../signnames.csv").read().strip().split("\n")[1:]
     labelNames = [l.split(",")[1] for l in labelNames]
 
     stats, top5, report, confusion = util.evaluate(model, evalX, evalY, labelNames)
 
-    f = open("output/germansignsnet4.4/classification_report.txt", "w+")
+    f = open("../output/germansignsnet4.4/classification_report.txt", "w+")
     f.write(report)
     f.close()
 

@@ -21,8 +21,8 @@ from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.utils import to_categorical
 
-from trafficSignCnn_v4 import TrafficSignNet_v4
-from trainingMonitor import TrainingMonitor
+from nets.trafficSignCnn_v4 import TrafficSignNet_v4
+from util.trainingMonitor import TrainingMonitor
 
 matplotlib.use("Agg")
 
@@ -31,7 +31,8 @@ EVALSIZE = 20
 
 def writeTopToCSV(name, list):
     with open(name, mode='w') as top_file:
-        top_writer = csv.writer(top_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_NONNUMERIC,
+        top_writer = csv.writer(top_file, delimiter=',', quotechar='"',
+                                quoting=csv.QUOTE_NONNUMERIC,
                                 lineterminator="\n")
 
         for top in list:
@@ -129,7 +130,7 @@ NUM_EPOCHS = 100
 INIT_LR = 1e-3
 BS = 64
 
-labelNames = open("signnames.csv").read().strip().split("\n")[1:]
+labelNames = open("../signnames.csv").read().strip().split("\n")[1:]
 labelNames = [l.split(",")[1] for l in labelNames]
 
 trainPath = os.path.sep.join([args["dataset"], "Train.csv"])

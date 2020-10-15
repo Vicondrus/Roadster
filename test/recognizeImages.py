@@ -20,7 +20,7 @@ args = vars(ap.parse_args())
 print("[INFO] loading model...")
 model = load_model(args["model"])
 
-labelNames = open("signnames.csv").read().strip().split("\n")[1:]
+labelNames = open("../signnames.csv").read().strip().split("\n")[1:]
 labelNames = [l.split(",")[1] for l in labelNames]
 
 print("[INFO] predicting...")
