@@ -131,8 +131,8 @@ def removeSmallComponents(image, threshold):
 def findContour(image):
     # find contours in the threshed image
     cnts = cv2.findContours(image, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
-    cnts = cnts[0] if imutils.is_cv2() else cnts[1]
-    return cnts
+    # cnts = cnts[0] if imutils.is_cv2() else cnts[1]
+    return cnts[0] if imutils.is_cv2(True) else cnts[1]
 
 
 def contourIsSign(perimeter, centroid, threshold):
