@@ -1,8 +1,6 @@
 import os
 from math import sqrt
-
 import cv2
-import imutils
 import numpy as np
 
 
@@ -130,9 +128,8 @@ def removeSmallComponents(image, threshold):
 
 def findContour(image):
     # find contours in the threshed image
-    cnts = cv2.findContours(image, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
-    # cnts = cnts[0] if imutils.is_cv2() else cnts[1]
-    return cnts[0] if imutils.is_cv2(True) else cnts[1]
+    cnts = cv2.findContours(image, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)[-2:]
+    return cnts[0]
 
 
 def contourIsSign(perimeter, centroid, threshold):
